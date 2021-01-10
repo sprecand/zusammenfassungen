@@ -1,4 +1,6 @@
 % Mathe Formelsammlung für HM1 ZHAW
+% 2 Seiten
+
 
 % Dokumenteinstellungen
 % ======================================================================
@@ -252,7 +254,7 @@
 		\subsection{Gauss-Algorithmus}
 			\begin{itemize}\itemsep0pt		
 				\item Ausgangslage: $Ax = b$
-				\item $\begin{pmatrix}a_{11}&a_{21} | b_{1}\\a_{12}&a_{22}|b_{2}\end{pmatrix} = $ \\ $\begin{pmatrix}a_{11}&a_{21} | b_{1}\\0&a_{22}-a_{21}\cdot \dfrac{a_{12}}{a_{11}}|b_{2}-b_{1}\cdot \dfrac{a_{12}}{a_{11}}\end{pmatrix} $
+				\item $\begin{pmatrix}a_{11}&a_{12} | b_{1}\\a_{21}&a_{22}|b_{2}\end{pmatrix} = $ \\ $\begin{pmatrix}a_{11}&a_{12} | b_{1}\\0&a_{22}-a_{12}\cdot \dfrac{a_{21}}{a_{11}}|b_{2}-b_{1}\cdot \dfrac{a_{21}}{a_{11}}\end{pmatrix} $
 			\end{itemize}
 			\subsubsection{Spaltenpivotisierung}
 			$\begin{pmatrix}1&1&1\\2&1&1\\1&2&2\end{pmatrix} \rightarrow \begin{pmatrix}2&1&1\\1&1&1\\1&2&2\end{pmatrix} \rightarrow \begin{pmatrix}2&1&1\\1&2&2\\1&1&1\end{pmatrix}$
@@ -275,7 +277,7 @@
 		\subsection{QR-Zerlegung}	
 			\begin{itemize}\itemsep0pt				
 				\item $Q^{T}\cdot Q =I \rightarrow Q$ ist orthogonal 
-				\item 	$Q^{-1} = Q^{T} \rightarrow Q$ ist regulär orthogonal
+				\item 	orthogonal $\rightarrow Q^{-1} = Q^{T} \rightarrow Q$ ist regulär
 				\item 	$Q^{T} = Q \rightarrow Q$ ist symmetrisch 
 			\end{itemize}
 		
@@ -305,6 +307,54 @@
 					
 				\end{itemize}
 		
+		\subsection{Fehlerrechnung}
+			\begin{itemize}\itemsep0pt	
+				\item Ziel: Von Residuum auf Fehler von x schliessen.
+				\item $A \tilde{x} = \tilde{b }= b + \Delta b$
+				\item Residuum: $\Delta b$
+				\item Fehler von x: $\Delta x = \tilde{x}-x$
+			\end{itemize}
+		
+		
+			\subsection{Vektornormen / Matrixnormen}
+				\subsubsection{1-Norm}			
+					\begin{itemize}\itemsep0pt	
+						\item $||\begin{pmatrix}-1\\2\\3\end{pmatrix}||_{1} = 1+2+3=6$
+						\item $||\begin{pmatrix}1&2&3\\3&4&-2\\7&-3&5\end{pmatrix}||_{1} = $ max(1+3+7, 2+4+3, 3+2+5) = 11
+					\end{itemize}
+				\subsubsection{2-Norm}			
+					\begin{itemize}\itemsep0pt	
+						\item $||\begin{pmatrix}-1\\2\\3\end{pmatrix}||_{2} = \sqrt{1^{2}+2^{2}+3^{2}}=\sqrt{14}$
+					\end{itemize}
+				\subsubsection{$\infty-$Norm}			
+					\begin{itemize}\itemsep0pt	
+						\item $||\begin{pmatrix}-1\\2\\3\end{pmatrix}||_{\infty} = $max$(1+2+3)=3$
+						\item $||\begin{pmatrix}1&2&3\\3&4&-2\\7&-3&5\end{pmatrix}||_{\infty} = $ max(1+2+3, 3+4+2, 7+3+5)=15
+					\end{itemize}
+			
+			\subsection{Abschätzung für fehlerbehaftete Vektoren}
+				\begin{itemize}\itemsep0pt	
+					\item $||x-\tilde{x}|| \leq ||A^{-1}||\cdot ||b-\tilde{b}||$
+					\item $\dfrac{||x-\tilde{x}||}{||x||} \leq ||A||\cdot ||A^{-1}||\cdot \dfrac{||b-\tilde{b}||}{||b||}$, falls $||b||\neq0$
+					\item Konditionszahl cond$(A) = ||A||\cdot ||A^{-1}||$
+				\end{itemize}
+
+			\subsection{Abschätzung für fehlerbehaftete Matrix}
+			\begin{itemize}\itemsep0pt	
+				\item $\tilde{A} \cdot \tilde{x} = \tilde{b}$
+				\item Wenn: cond$(A)\cdot \dfrac{||A-\tilde{A}||}{||A||} < 1$
+				\item Dann: $\dfrac{||x-\tilde{x}||}{||x||} \leq \dfrac{cond(A)}{1-cond(A)\cdot \dfrac{||A-\tilde{A}||}{||A||}}\cdot (\dfrac{||A-\tilde{A}||}{||A||} + \dfrac{||b-\tilde{b}||}{||b||} ) $
+					
+				\end{itemize}
+			
+
+		\subsection{Iterative Verfahren}
+		
+			\subsection{Das Jacobi-Verfahren}
+			
+			\subsection{Das Gauss-Seidel-Verfahren}
+		
+			\subsection{Konvergenz}
 				
 		\subsection{Eigenwerte und Eigenvektoren}
 			\subsubsection{Algebraische Vielfachheit / Spektrum}
@@ -319,7 +369,7 @@
 			\subsubsection{Determinante von $A\in \mathbb K^{n\times n}$: $\det(A)=|A|$}
 
 				\begin{itemize}\itemsep0pt
-				\item $A=\begin{pmatrix}2&2&2\\1&2&1\\1&2&1\end{pmatrix},|A_{21}| = \begin{pmatrix}a_{12}&a_{32}\\a_{13}&a_{33}\end{pmatrix},\begin{pmatrix}1&1\\1&1\end{pmatrix} $ 
+				\item $A=\begin{pmatrix}2&2&2\\1&2&1\\1&2&1\end{pmatrix},|A_{12}| = \begin{pmatrix}a_{21}&a_{23}\\a_{31}&a_{33}\end{pmatrix},\begin{pmatrix}1&1\\1&1\end{pmatrix} $ 
 					\item $|A|=\sum\limits_{i=1}^n (-1)^{i+j} \cdot a_{ij} \cdot |A_{ij}|$ \qquad Entwicklung n. $j$-ter Spalte
 					\item $|A|=\sum\limits_{j=1}^n (-1)^{i+j} \cdot a_{ij} \cdot |A_{ij}|$ \qquad Entwicklung n. $i$-ter Zeile
 					\item $\det\begin{pmatrix}A&0\\C&D\end{pmatrix}=\det\begin{pmatrix}A&B\\0&D\end{pmatrix}=\det(A)\cdot\det(D)$

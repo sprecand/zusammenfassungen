@@ -1,0 +1,364 @@
+% Mathe Formelsammlung für HM1 ZHAW
+% 2 Seiten
+
+
+% Dokumenteinstellungen
+% ======================================================================
+
+% Dokumentklasse (Schriftgröße 6, DIN A4, Artikel)
+\documentclass[6pt,a4paper]{scrartcl}
+
+% Zusätzliche Pakete laden
+\usepackage[utf8]{inputenc}        % Zeichenkodierung: UTF-8 (für Umlaute)
+\usepackage[german]{babel}        % Deutsche Sprache
+\usepackage{multicol}            % Spaltenpaket
+\usepackage{amsmath}            % erlaubt mathematische Formeln
+\usepackage{amssymb}            % Verschiedene Symbole
+\usepackage{esint}                % erweiterte Integralsymbole
+\usepackage{booktabs}            % bessere Tabellenlinien
+\usepackage{graphicx}            % Zum Bilder einfügen benötigt
+\usepackage{color}                % Farbiger Text möglich
+\usepackage{pbox}                % Intelligent parbox: \pbox{maximum width}{blabalbalb \\ blabal}
+%\usepackage{undertilde}            % Für Welle unterhlab von Matrixbuchstaben benötigt
+\usepackage{accents}            % Für eigene Ableitungspunkte benötigt
+\usepackage{scrtime}
+\usepackage{supertabular}        % Für lange Tabellen mit Umbruch
+\usepackage{pdfpages}
+\usepackage{trfsigns}            % Laplace und Fourier
+\usepackage{array}
+
+
+% Seitenlayout und Ränder:
+\usepackage{geometry}
+\geometry{a4paper,landscape, left=6mm,right=6mm, top=-1mm, bottom=3mm,includeheadfoot}
+\setlength{\parindent}{0mm}
+
+
+% Dokumentbeschreibung
+\title{Formelsammlung Höhere Mathematik 1 ZHAW}
+\author{Andreas Sprecher}
+
+
+% Kopf- und Fußzeile
+% ======================================================================
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+   \fancyfoot[C]{\textbf{Höhere Mathematik 1}}
+   \renewcommand{\headrulewidth}{0.0pt} %obere Linie ausblenden
+   \renewcommand{\footrulewidth}{0.1pt} %obere Linie ausblenden
+
+   \fancyfoot[R]{Stand: \todayV}
+   \fancyfoot[L]{Andreas Sprecher}
+% ----------------------------------------------------------------------
+
+% Ausgegraut zum Abschreiben:
+%\definecolor{grey}{rgb}{0.6,0.6,0.6}
+%\color{grey}
+
+% Befehle und Befehlsüberschreibungen
+% ======================================================================
+
+% Schriftart SANS für bessere Lesbarkeit bei kleiner Schrift
+\renewcommand{\familydefault}{\sfdefault}
+% Array- und Tabellenabstände vergrößern
+\renewcommand{\arraystretch}{1.2}
+
+% Befehle sichern
+\let\oldvec = \vec
+\let\olddot = \dot
+
+% Eigene Befehle
+\newcommand{\todayV}{\the\day.\the\month.\the\year}                          %%D.M.YYYY
+
+\newcommand{\iset}[2]{\ensuremath{\bigl\{ \bigl. #1 \, \bigr| \, #2 \bigr\}}}                   % intensional set
+\newcommand{\eset}[1]{\ensuremath{\bigl\{#1\bigr\}}}                                            % extensional set
+%\newcommand{\enbrace}[1]{\ensuremath{\bigl\(#1\bigr\)}}                                        % extensional set
+\newcommand{\enbrace}[1]{\ensuremath{\left(#1\right)}}
+\newcommand{\norm}[1]{\ensuremath{\|#1\|}}                                                      % Norm
+\newcommand{\mat}[1]{\ensuremath{\begin{bmatrix} #1 \end{bmatrix}}}                             % Matrix
+\newcommand{\ma}[1]{\ensuremath{\boldsymbol {#1}}}                                              % Matrixsymbol
+\newcommand{\vect}[1]{\ensuremath{\begin{pmatrix} #1 \end{pmatrix}}}                            % Vektor
+\newcommand{\mvect}[1]{\ensuremath{\left. \begin{matrix} #1 \end{matrix}  \right]}}             % Matrixvektornotation
+\newcommand{\gk}[1]{\ensuremath{\left\lfloor#1\right\rfloor}}                                   % Gaußklammer
+\newcommand{\sprod}[2]{\ensuremath{\left\langle #1, #2 \right\rangle }}                         % Skalarprodukt
+\newcommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}}                                      % Betrag
+\newcommand{\bdot}{\ensuremath{\boldsymbol \cdot}}                                              % Dicker Punkt für Skalarprodukt
+\newcommand{\svdots}{\ensuremath{\olddot :}}                                                    % small vertical dots
+\newcommand{\mustbe}{\stackrel{!}{=}}
+
+\newcommand{\inn}{\operatorname{int}}
+
+
+% Überschreibungen
+\renewcommand{\vec}[1]{\ensuremath{\boldsymbol {#1}}}                                           % Vektor fett und unterstrichen
+\renewcommand{\emph}[1]{\textbf{#1}}                                                            % Hervorhebungen fett
+\renewcommand*{\dot}[1]{\accentset{\mbox{\textrm{\large\bfseries .}} }{#1}}                     % Dicker Ableitungspunkt
+\renewcommand*{\ddot}[1]{\accentset{\mbox{\textrm{\large\bfseries .\hspace{-0.25ex}.}}}{#1}}    % Dicker Doppelableitungspunkt
+
+% Abkürzungen
+\newcommand{\ul}[1]{\ensuremath{\underline{#1}}}                               % Untersteichen
+\newcommand{\ol}[1]{\ensuremath{\overline{#1}}}                                % Überstreichen
+\newcommand{\Ra}[0]{\ensuremath{\Rightarrow}}                                  % Rightarrow
+\newcommand{\ra}[0]{\ensuremath{\rightarrow}}                                  % Rightarrow
+\newcommand{\bs}[1]{\ensuremath{\boldsymbol{#1}}}                              % Fett und kursiv im mathmode
+\newcommand{\diff}{\ensuremath{\;\mathrm d}}                                   % differentielles delta
+\newcommand{\grad}{\ensuremath{\mathrm{grad}\ }}                               % Gradient
+\renewcommand{\div}{\ensuremath{\mathrm{div}\ }}                               % Divergenz
+\newcommand{\rot}{\ensuremath{\mathrm{rot}\ }}                                 % Rotation
+\newcommand{\Sp}{\ensuremath{\mathrm{Sp}\ }}                                   % Spur
+\renewcommand{\i}{\ensuremath{\mathrm{i}}}                                     % Imaginäre Einheit
+
+% Für Mengen
+\newcommand{\N}{\ensuremath{\mathbb N}}
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\C}{\ensuremath{\mathbb C}}
+
+
+%Custom functions
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\Kern}{kern}
+\DeclareMathOperator{\rang}{rang}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+
+
+% Dokumentbeginn
+% ======================================================================
+\begin{document}
+
+
+% Aufteilung in Spalten
+\begin{multicols*}{4}
+\setlength{\columnseprule}{0.4pt}
+    \parbox{3cm}{
+        \includegraphics[height=1.5cm]{./img/Logo.jpeg}
+    }
+    \parbox{4cm}{
+        \emph{\Large{Höhere Mathematik 1}}
+    }
+    \vspace{-2mm} 
+
+	\section{Rechnerarithmetik}
+		\subsection{Maschinenzahlen}
+			\begin{itemize}\itemsep0pt				
+				\item $x = m \cdot B^{e}$
+				\item $m: \pm 0.m_{1}...m_{n}$
+				\item $B$: Basis (Binär: B=2)
+				\item $e: \pm e_{1}...e_{l}$
+				\item M: $\{x\epsilon R | x = \pm 0.m_{1}...m_{n}\cdot B^{\pm e_{1}...e_{l}}\} \cup \{0\}$
+				\item $m_{i}, e_{i}\epsilon\{0,1,..., B-1\}$	
+				\item Wert $\hat{w} = \sum m_{i}B^{\hat{e}-i}$
+				\item $\hat{e} = \sum m_{i}B^{\hat{e}-i}$
+			\end{itemize}
+		\subsection{Approximations- und Rundungsfehler}
+			\begin{itemize}\itemsep0pt	
+				\item Maschinengenauigkeit eps $=\dfrac{B}{2}\cdot B^{-n}$
+				\item Die Maschinengenauigkeit ist die kleinste positive Maschinenzahl, für die auf dem Rechner $1 + $eps$  \neq 1$ gilt.
+			\end{itemize}		
+		
+			\subsubsection{Konditionierung}
+    				\begin{itemize}\itemsep0pt			
+    					\item Konditionszahl $K:= \dfrac{|f'(x)|\cdot |x|}{|f(x)|} $
+    					\item Näherungsweise Angabe, um wieviel sich der relative Fehler von x vergrössert bei einer Funktionsauswertung f(x).
+    					\item Ein Problem ist gut konditionierte, wenn die Konditionszahl klein ist.
+
+				\end{itemize}		
+		
+    			\subsubsection{Absoluter Fehler}
+    				\begin{itemize}\itemsep0pt			
+    					\item $|\tilde{x} - x|$	
+					\item $|f(\tilde{x})-f(x)|\approx |f'(x)|\cdot |\tilde{x} - x|$
+				\end{itemize}
+			\subsubsection{Relativer Fehler}	
+				\begin{itemize}\itemsep0pt	
+					\item $\dfrac{|\tilde{x} - x|}{|x|}$
+					\item $\dfrac{|f(\tilde{x})-f(x)|}{|f(x)|}\approx \dfrac{|f'(x)|\cdot |x|}{|f(x)|} \cdot \dfrac{|\tilde{x} - x|}{|x|}$
+				\end{itemize}
+   
+	\section{Nullstellenproblemen}
+		\subsection{Fixpunktgleichung}
+			\begin{itemize}\itemsep0pt	
+				\item Idee: $f(x) = F(x) - x$
+				\item $F(x) = x$
+			\end{itemize}
+		\subsection{Fixpunktiteration}
+			\begin{itemize}\itemsep0pt	
+				\item $x_{n+1} \equiv F(x_{n})$
+			\end{itemize}
+			\subsubsection{Anziehender Fixpunkt}
+				\begin{itemize}\itemsep0pt	
+					\item Ist $|F'(x)| < 1$, so konvergiert $x_{n}$ gegen $\bar{x}$, falls der Startwert $x_{0}$ nahe genug bei $\bar{x}$ liegt.
+				\end{itemize}
+			\subsubsection{Abstossender Fixpunkt}
+			\begin{itemize}\itemsep0pt	
+					\item Ist $|F'(x)| > 1$, so konvergiert $x_{n}$ für keinen Startwert $x_{0}\neq \bar{x}$.
+			\end{itemize}
+
+		\subsection{Banachsche Fixpunktsatz}
+			Wenn eine Lipschnitz-Konstante $\alpha$ mit:
+			
+			\begin{itemize}\itemsep0pt	
+				\item $F: [a,b] \rightarrow [a,b]$
+				\item $0<\alpha <1$
+				\item $|F(x) - F(y)| \leq \alpha |x-y|$ mit $x,y \epsilon [a,b]$
+			\end{itemize}
+			
+			 existiert, dann gilt:
+			 
+			 \begin{itemize}\itemsep0pt	
+				\item F hat genau einen Fixpunkt $\bar{x}$ in $[a,b]$
+				\item Die Fixpunktiteration $x_{n+1} = F(x_{n})$ konvergiert gegen $\bar{x}$ für alle Startwerte $x_{0} \epsilon [a,b]$
+				\item a-priori Abschätzung $|x_{n} - \bar{x}| \leq \dfrac{\alpha^{n}}{1-\alpha}\cdot |x_{1}-x_{0}|$ 
+				
+				\item a-posteriori Abschätzung $|x_{n} - \bar{x}| \leq \dfrac{\alpha}{1-\alpha}\cdot |x_{n}-x_{n-1}|$ 
+			\end{itemize}
+			 
+			 
+		\subsection{Newtonverfahren}
+			\begin{itemize}\itemsep0pt	
+				\item $x_{n+1} = x_{n} - \dfrac{f(x_{n})}{f'(x_{n})}$
+			\end{itemize}
+			\subsubsection{Vereinfachte Newtonverfahren}
+				\begin{itemize}\itemsep0pt	
+					\item $x_{n+1} = x_{n} - \dfrac{f(x_{n})}{f'(x_{0})}$
+				\end{itemize}
+		\subsection{Sekantenverfahren}
+			\begin{itemize}\itemsep0pt	
+				\item $x_{n+1} = x_{n} - \dfrac{x_{n - x_{n-1}}}{f(x_{n}) - f(x_{n-1})} \cdot f(x_{n})$
+			\end{itemize}
+		\subsection{Konvergenzordnung $q$}
+			\begin{itemize}\itemsep0pt	
+				\item $|x_{n+1} - \bar{x}| \leq c \cdot |x_{n} - \bar{x}|^{q}$				
+				\item $c>0$
+				\item $q\geq 1$
+				\item Für $q=1$ muss $c<1$ gelten
+			\end{itemize}
+		
+		
+			Für einfache Nullstellen konvergiert:
+			\begin{itemize}\itemsep0pt	
+				\item Das Newton-Verfahren quadratisch (q=2)
+				\item Das vereinfachte Newton-Verfahren linear (q=1)
+				\item Das Sekantenverfahren $q = \dfrac{1+\sqrt{5}}{2} \approx 1.618$
+			\end{itemize}
+		
+		
+	\section{Lineare Gleichungssysteme}
+		\subsection{Dreiecksmatrix}
+			\begin{itemize}\itemsep0pt		
+				\item Untere Dreiecksmatrix: $\begin{pmatrix}2&0&0\\1&2&0\\1&2&1\end{pmatrix}$
+				\item Obere normierte Dreiecksmatrix: $\begin{pmatrix}1&2&1\\0&1&2\\0&0&1\end{pmatrix}$
+			\end{itemize}
+			
+		\subsection{Gauss-Algorithmus}
+			\begin{itemize}\itemsep0pt		
+				\item Ausgangslage: $Ax = b$
+				\item $\begin{pmatrix}a_{11}&a_{21} | b_{1}\\a_{12}&a_{22}|b_{2}\end{pmatrix} = $ \\ $\begin{pmatrix}a_{11}&a_{21} | b_{1}\\0&a_{22}-a_{21}\cdot \dfrac{a_{12}}{a_{11}}|b_{2}-b_{1}\cdot \dfrac{a_{12}}{a_{11}}\end{pmatrix} $
+			\end{itemize}
+			\subsubsection{Spaltenpivotisierung}
+			$\begin{pmatrix}1&1&1\\2&1&1\\1&2&2\end{pmatrix} \rightarrow \begin{pmatrix}2&1&1\\1&1&1\\1&2&2\end{pmatrix} \rightarrow \begin{pmatrix}2&1&1\\1&2&2\\1&1&1\end{pmatrix}$
+	
+		\subsection{LR-Zerlegung}	
+			\begin{itemize}\itemsep0pt				
+				\item $A = L \cdot R$
+				\item $L$ ist eine untere normierte Dreiecksmatrix
+				\item $R$ ist eine obere Dreiecksmatrix $r_{ii} \neq 0$
+				\item $A=\begin{pmatrix}1&1&2\\2&1&1\\1&2&2\end{pmatrix}$
+				\item  $A^{*}=\begin{pmatrix}2&1&1\\1&1&2\\1&2&2\end{pmatrix}$, $P_{1}=\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}$
+				\item $A_{1}^{*}=\begin{pmatrix}2&1&1\\0&0.5&1.5\\0&1.5&1.5\end{pmatrix}$, $L=\begin{pmatrix}1&0&0\\0.5&1&0\\0.5&?&1\end{pmatrix}$
+				\item $A_{1}^{**}=\begin{pmatrix}2&1&1\\0&1.5&1.5\\0&0.5&1.5\end{pmatrix}$, $P_{2}=\begin{pmatrix}1&0&0\\0&0&1\\0&1&0\end{pmatrix}$
+				\item $R=\begin{pmatrix}2&1&1\\0&1.5&1.5\\0&0&1\end{pmatrix}$, $L=\begin{pmatrix}1&0&0\\0.5&1&0\\0.5&0.33&1\end{pmatrix}$
+				\item 	$P = P_{2} \cdot P_{1} = \begin{pmatrix}0&1&0\\0&0&1\\1&0&0\end{pmatrix}$
+				\item $Ly = Pb$
+				\item $Rx = y$
+			\end{itemize}
+			
+		\subsection{QR-Zerlegung}	
+			\begin{itemize}\itemsep0pt				
+				\item $Q^{T}\cdot Q =I \rightarrow Q$ ist orthogonal 
+				\item 	$Q^{-1} = Q^{T} \rightarrow Q$ ist regulär orthogonal
+				\item 	$Q^{T} = Q \rightarrow Q$ ist symmetrisch 
+			\end{itemize}
+		
+			\subsubsection{Householder-Matrizen}
+				\begin{itemize}\itemsep0pt				
+					\item $u$ normierter Vektor (Länge 1)
+					\item $H := I - 2uu^{T}$
+					\item $H$ ist symmetrisch und orthogonal
+					\item $v_{1} := a_{1} + $ sign$(a_{11}) \cdot |a_{1}| \cdot e_{1}$
+					\item $u_{1} := \dfrac{1}{|v_{1}|}v_{1}$
+					
+				
+				\end{itemize}
+				
+			\subsubsection{Vorgehen}
+				\begin{itemize}\itemsep0pt	
+					\item $A=\begin{pmatrix}1&1&2\\2&1&1\\1&2&2\end{pmatrix}$, $a_{1}=\begin{pmatrix}1\\2\\1\end{pmatrix}$, $e_{1}=\begin{pmatrix}1\\0\\0\end{pmatrix}$
+					\item $v_{1} = \begin{pmatrix}3.45\\2\\1\end{pmatrix}$, $u_{1} = \begin{pmatrix}0.84\\0.49\\0.24\end{pmatrix}$
+					\item $H_{1} = Q_{1} = \begin{pmatrix}-0.41&-0.82&-0.41\\-0.82&0.53&-0.24\\-0.41&-0.24&0.88\end{pmatrix}$
+					\item $Q_{1}A= \begin{pmatrix}-2.45&-2.04&-2.45\\0&-0.76&-1.58\\0&1.12&0.71\end{pmatrix}$
+					\item $ A_{2} = \begin{pmatrix}-0.76&-1.58\\1.12&0.71\end{pmatrix}$
+					\item $v_{2} = \begin{pmatrix}-2.12\\1.12\end{pmatrix}$, $u_{2} = \begin{pmatrix}-0.88\\0.47\end{pmatrix}$
+					\item $H_{2} = \begin{pmatrix}-0.56&0.83\\0.83&0.56\end{pmatrix}$
+					\item $Q_{2} = \begin{pmatrix}1&0&0\\0&-0.56&0.83\\0&0.83&0.56\end{pmatrix}$
+					\item $Q= Q_{1}^{T} Q_{2}^{T}$
+					\item $R= Q_{1}Q_{2}A$
+					
+				\end{itemize}
+		
+				
+		\subsection{Eigenwerte und Eigenvektoren}
+			\subsubsection{Algebraische Vielfachheit / Spektrum}
+				\begin{itemize}\itemsep0pt				
+					\item Geometrische und algebraische Vielfachheit eines Eigenwerts müssen nicht gleich sein. 
+					\item Die geom. Vielfachheit ist aber stets kleiner oder gleich der algebraischen Vielfachheit.
+					\item $(1-\lambda)^{2} = 0$ \qquad Algebraische Vielfachheit = 2
+					\item $\lambda = 0$ \qquad \qquad \qquad Algebraische Vielfachheit = 1
+				\end{itemize}
+			\subsubsection{Determinate}
+			
+			\subsubsection{Determinante von $A\in \mathbb K^{n\times n}$: $\det(A)=|A|$}
+
+				\begin{itemize}\itemsep0pt
+				\item $A=\begin{pmatrix}2&2&2\\1&2&1\\1&2&1\end{pmatrix},|A_{21}| = \begin{pmatrix}a_{12}&a_{32}\\a_{13}&a_{33}\end{pmatrix},\begin{pmatrix}1&1\\1&1\end{pmatrix} $ 
+					\item $|A|=\sum\limits_{i=1}^n (-1)^{i+j} \cdot a_{ij} \cdot |A_{ij}|$ \qquad Entwicklung n. $j$-ter Spalte
+					\item $|A|=\sum\limits_{j=1}^n (-1)^{i+j} \cdot a_{ij} \cdot |A_{ij}|$ \qquad Entwicklung n. $i$-ter Zeile
+					\item $\det\begin{pmatrix}A&0\\C&D\end{pmatrix}=\det\begin{pmatrix}A&B\\0&D\end{pmatrix}=\det(A)\cdot\det(D)$
+					\item $\begin{vmatrix}\lambda_1&&* \\ &\ddots& \\ 0&&\lambda_n \end{vmatrix} = \lambda_1\cdot \ldots\cdot \lambda_n = \begin{vmatrix} \lambda_1&&0  \\  &\ddots& \\  *&&\lambda_n \end{vmatrix}$
+					\item $A=B \cdot C \quad \Rightarrow \quad |A|=|B| \cdot |C|$
+					\item $\det(A)=\det(A^\top)$
+					\item Hat $A$ zwei gleiche Zeilen/Spalten $\Rightarrow |A|=0$
+					\item $\det(\lambda A)=\lambda^n \det(A)$
+					\item Ist $A$ invertierbar, so gilt: $\det(A^{-1})=(\det(A))^{-1}$
+					\item $\det(AB) = \det(A) \det(B) = \det(B) \det(A) = \det(BA)$
+				\end{itemize}
+				\textbf{Umformung Determinante}
+				\begin{itemize}\itemsep0pt
+					\item Vertauschen von Zeilen/Spalten ändert Vorzeichen von $|A|$
+					\item Zeile/Spalte mit $\lambda$ multiplizieren, $|A|$ um Faktor $\lambda$ größer
+					\item Addition des $\lambda$-fachen der Zeile X zur Zeile Y ändert $|A|$ nicht 
+				\end{itemize}
+				\textbf{Vereinfachung für Spezialfall $A\in \mathbb K^{2\times 2}$}\\
+				$A=\begin{pmatrix}a&b\\c&d\end{pmatrix} \Rightarrow \det(A)=|A|=ad-bc$
+
+			\subsubsection{Äquivalente Aussagen für $A\in \mathbb K^{n\times n}$}
+				\begin{tabular}{ll}
+					1)  $A$ ist invertierbar & 2) $\dim(\col(A))=\dim(\row(A))=n$\\
+					3)  $\Kern(A)={0}$ & 4) Die strenge ZSF von $A$ ist $\mathbb{I}_n$\\
+					5) $\det(A)\ne0$ & 6) Zeilen/Spalten von $A$ linear unabhängig\\
+					7) $Ax=b$ hat eine & 8) 0 ist kein Singulärwert von $A$\\\ \ \ \ eind. Lös. $\forall b\in\mathbb{R}^n$ & 9) Lineare Abbildung ist bijektiv\\
+					10)  $\rang(A)=n$ & 11) 0 ist kein Eigenwert von $A$\\
+
+				\end{tabular}			
+			
+			\subsubsection{Spur}
+  			Spur von A $= tr(A)=a_{11} +a_{22} +...+a_{nn} =\lambda_{1} +\lambda_{2} +...+\lambda_{n}$
+
+    
+
+
+\end{multicols*}
+
+% Dokumentende % ======================================================================
+\end{document}

@@ -1,10 +1,12 @@
-% Formelsammlung für Elektrotechnik ZHAW
+% Mathe Formelsammlung für HM1 ZHAW
+% 2 Seiten
+
 
 % Dokumenteinstellungen
 % ======================================================================
 
 % Dokumentklasse (Schriftgröße 6, DIN A4, Artikel)
-\documentclass[6pt,a4paper]{scrartcl}
+\documentclass[8pt,a4paper]{scrartcl}
 
 % Zusätzliche Pakete laden
 \usepackage[utf8]{inputenc}        % Zeichenkodierung: UTF-8 (für Umlaute)
@@ -33,7 +35,7 @@
 
 
 % Dokumentbeschreibung
-\title{Formelsammlung Elektrotechnik ZHAW}
+\title{Formelsammlung Analysis ZHAW}
 \author{Andreas Sprecher}
 
 
@@ -123,7 +125,7 @@
 
 
 % Aufteilung in Spalten
-\begin{multicols*}{4}
+\begin{multicols*}{3}
 \setlength{\columnseprule}{0.4pt}
     \parbox{3cm}{
         \includegraphics[height=1.5cm]{./img/Logo.jpeg}
@@ -132,10 +134,6 @@
         \emph{\Large{Elektrotechnik}}
     }
     \vspace{-2mm} 
-    % -------------------------------------------
-    % |         Mathematik Analysis              |
-    % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    %=======================================================================
 
     \section{Grundlagen}
 		\subsection{Zentrale Aufgabe der Physik}    
@@ -271,7 +269,7 @@
 			\end{itemize}		
 			\subsubsection{Analoge Schaltung}
 				\begin{multicols*}{2}		
-					\includegraphics[height=2.5cm]{img/schaltung.png}
+					\includegraphics[height=3.3cm]{img/schaltung.png}
 					\begin{itemize}\itemsep0pt				
 						\item $R[\Omega]$
 						\item $U_{R}=RI$
@@ -284,7 +282,7 @@
 					\item Bei einem \textbf{Knoten} kommen mindestens drei Drähte zusammen.
 					\item Durch die Ladungserhaltung muss die Summe der einfliessenden minus der Summe der wegfliessenden Ströme null ergeben.
 					\item Kabelwiderstand $R = \rho\dfrac{L}{A}$							\end{itemize}			
-				\includegraphics[height=4cm]{img/schaltung2.png}	
+				\includegraphics[height=5.5cm]{img/schaltung2.png}	
 				\subsubsection{Serieschaltung}	
 					\begin{itemize}\itemsep0pt
 						\item Serieschaltung $R = R_{1} + R_{2}$
@@ -299,7 +297,7 @@
 			
 		\subsection{Batterie}
 			\begin{multicols*}{2}
-				\includegraphics[height=2.5cm]{img/batterie.png} \\
+				\includegraphics[height=3.3cm]{img/batterie.png} \\
 				\begin{itemize}\itemsep0pt
 					\item Ideale Bat: $U_{0}=const.$				
 					\item $U_{0}-U_{in}-U_{last} =0$
@@ -315,7 +313,7 @@
 			
 		\subsection{Kondensator}
 			\begin{multicols*}{2}
-				\includegraphics[height=2.9cm]{img/kondensator1.png} 
+				\includegraphics[height=3.8cm]{img/kondensator1.png} 
 				
 				\begin{itemize}\itemsep0pt
 					\item Kondensatoren können praktisch beliebig oft aufge- und entladen werden.
@@ -328,19 +326,19 @@
 			 \end{multicols*}
 			 
 			 \begin{multicols*}{2}
-				\includegraphics[height=2.2cm]{img/kondensator2.png} 
+				\includegraphics[height=3.1cm]{img/kondensator2.png} 
 				
 				\begin{itemize}\itemsep0pt
 					\item $I = \dfrac{1}{R}(U_{s}-\dfrac{Q}{C})$
 					\item $U_{s}=IR+\dfrac{Q}{C}$
 				\end{itemize}
 				
-				\includegraphics[height=3.5cm]{img/kondensator3.png} 
+				\includegraphics[height=4.4cm]{img/kondensator3.png} 
 
 			 \end{multicols*}
 
 		\subsection{Hochspannung}
-			\includegraphics[height=2cm]{img/hochspannung1.png} 
+			\includegraphics[height=2.5cm]{img/hochspannung1.png} 
 			\begin{itemize}\itemsep0pt
 				\item Je grösser $U_{V}, $desto kleiner der relative Leistungsverlust in der Leitung.
 				\item Der Verlust beträgt wenige Prozent pro hunder Kilometer (Wechselspannung)
@@ -369,7 +367,7 @@
 					\item \textbf{Schaltwerk} enthalten Rückkopplungen und besitzen dadurch einen speichernden Charakter.
 				\end{itemize}
 			\subsection{Logik-Gatter}
-				\includegraphics[height=4cm]{img/digitaleGrundbausteine.png} 
+				\includegraphics[height=5.8cm]{img/digitaleGrundbausteine.png} 
 				\begin{itemize}\itemsep0pt
 					\item Schalter die durch elektronische Signale betrieben werden sind \textbf{Transistoren}
 					\item NOT: Einzelner Schalter
@@ -401,16 +399,16 @@
 					\end{itemize}
 					
 			\subsection{KV-Diagramm}
-				\includegraphics[height=5cm]{img/kv1.png} 
-				\includegraphics[height=2.5cm]{img/kv2.png} 
-				\includegraphics[height=4cm]{img/kv3.png} 
+				\includegraphics[height=6.5cm]{img/kv1.png} 
+				\includegraphics[height=3cm]{img/kv2.png} 
+				\includegraphics[height=7cm]{img/kv3.png} 
 
 
 		\section{Elektrische und Magnetische Felder}
 
 			\subsection{Ladungen und Ströme}
 				\begin{itemize}\itemsep0pt
-					\item Wenn man mehrere Ladungen hat, darf man die Kräfte zusammenzählen. Dies nennt man das Superpositionsprinzip.
+					\item Wenn man mehrere Ladungen hat, darf man die Kräfte zusammenzählen. Dies nennt man das \textbf{Superpositionsprinzip}.
 					\item $\overrightarrow{F_{12}}$: Kraft auf Ladung $Q_{1}$, verursacht durch Ladung $Q_{2}$
 					\item Einheitsvektor von $Q_{2}$ zu $Q_{1}$: $\overrightarrow{n}_{12} = \dfrac{\overrightarrow{r}_{12}}{|\overrightarrow{r}_{12}|}$
 					\item Permittivität des Vakuums $ \varepsilon_{0}=8.859*10^{-12}\dfrac{C^{2}}{Jm}$
@@ -430,6 +428,7 @@
 				\begin{itemize}\itemsep0pt
 					\item $\overrightarrow{E}(\overrightarrow{r},t), [\dfrac{N}{C}]$
 					\item Werden erzeugt durch Ladung oder zeitlich veränderliche magnetische Felder (Mehrer Quellen: Vektorsumme (Superpositionsprintzip))
+					\item Das elektrische Feld zeigt von positiven Ladungen zu negativen Ladungen hin
 				\end{itemize}
 			
 				Ladung $Q$ an Ort $\overrightarrow{r}_{Q}$ erzeug $\overrightarrow{E}$-Feld:		
@@ -442,7 +441,7 @@
 				\begin{itemize}\itemsep0pt
 					\item $\overrightarrow{F}=q\overrightarrow{E}(\overrightarrow{r},t)$
 				\end{itemize}
-			\subsection{Elektronvolt}
+			\subsubsection{Elektronvolt}
 				\begin{itemize}\itemsep0pt
 					\item $1 eV = W = F \cdot d =q\cdot E\cdot d=q \cdot U= 1.6\cdot10^{-19}J$
 					\item Arbeit $W=\dfrac{m\cdot v^{2}}{2}$
@@ -451,6 +450,7 @@
 				\begin{itemize}\itemsep0pt
 					\item $\overrightarrow{B}(\overrightarrow{r},t), [\dfrac{kg}{s\cdot C}]$
 					\item Werden erzeugt durch Ströme oder zeitlich veränderliche elektrische Felder (Mehrer Quellen: Vektorsumme (Superpositionsprintzip))
+					\item Das Magnetfeld zeigt vom Nord- zum Südpol
 					\item Das Magnetfeld zeigt vom Nord- zum Südpol
 				\end{itemize}
 				
@@ -468,7 +468,82 @@
 						\item Daumen: Richtung der positiven Ladung
 					\end{itemize}					
 				
-			\subsection{Elektromotors}
+			\subsection{Generatoren/Elektromotoren}
+				\begin{itemize}\itemsep0pt
+					\item Steht ein stromdurchflossener Draht senkrecht zu einem Magnetfeld wirkt eine Kraft auf den Draht
+				\end{itemize}	
+			
+					\subsubsection{Generatoren}
+						\begin{itemize}\itemsep0pt
+							\item Beim Generator werden die Leiterbahn im Magnetfeld bewegt
+							\item Die Ladungsträger erhalten eine Geschwindigkeit senkrecht zur Leiterbahn
+							\item Das Magnetfeld führt zu einer Kraft auf die Ladungsträger in Richtung der Leiterbahn
+							\item Strom mit wechselnder Richtung (Wechselstrom) fliesst
+						\end{itemize}
+					\subsubsection{Elektromotoren}
+						\begin{itemize}\itemsep0pt
+							\item Beim Elektromoter werden die Leiterbahn im Magnetfeld durch die Lorentzkräfte bewegt
+							\item Die stromdurchflossene Schlaufe führt zu einem Drehmoment
+							\item Die Schlaufe dreht sich im Uhrzeigersinn
+							\item Bei $\theta = 180$ wird die Stromrichtung geändert
+						\end{itemize}		
+						\includegraphics[height=4.6cm]{img/elemot.png} 
+			\section{Maxwellgleichungen}
+				\subsection{Gauss’sche Gesetz (Elektischer Fluss)}
+					\begin{itemize}\itemsep0pt
+						\item $\Phi_{\overrightarrow{E}}(\Sigma) = \int_{V}\dfrac{\rho}{\varepsilon_{0}}dV = \dfrac{Q}{\varepsilon_{0}}$
+						\item Der Fluss des elektrischen Feldes $\overrightarrow{E}$ durch eine geschlossene Fläche $\Sigma$ ist gleich dem Volumenintegral über die Ladungsdichte $\rho / \varepsilon_{0}$ innerhalb von $\Sigma$, also gleich der von $\Sigma$ eingeschlossenen Ladung $Q$ geteilt durch $\varepsilon_{0}$
+						\item $|\overrightarrow{E}| = \dfrac{Q}{4\pi\varepsilon_{0}r^{2}}$
+						\item Das elektrische Feld zeigt von positiven Ladungen zu negativen Ladungen hin
+					\end{itemize}		
+				\subsection{Magnetischer Fluss}
+					\begin{itemize}\itemsep0pt
+						\item Es gibt keine magnetische Ladungen
+						\item $\Phi_{\overrightarrow{B}}(\Sigma) =0$
+						\item Der Fluss des magnetischen Feldes $\overrightarrow{B}$ durch eine geschlossene Fläche $\Sigma$ ist gleich 0
+					\end{itemize}	
+				\subsection{Faraday'sches Gesetz (Linienintegral des elektrischen Feldes)}
+					\begin{itemize}\itemsep0pt
+						\item $\int_{\gamma} \overrightarrow{E} \cdot d \overrightarrow{\gamma} = - \dfrac{d}{dt} \Phi_{\overrightarrow{B}}(\Omega)$
+						\item Das Linienintegral des elektrischen Feldes $\overrightarrow{E}$ über einer Kurve $\gamma$ ist gleich der zeitlichen Änderung des negativen Flusses des magnetischen Feldes durch eine von $\gamma$ berandete Fläche $\Omega$
+						\item Die Änderung des Flusses eines Magnetfeldes durch eine Schlaufe induziert in dieser eine Spannung U
+						\item $U=-\dfrac{d}{dt}\Phi_{\overrightarrow{B}}$(Schlaufe)
+						\item $\Phi_{\overrightarrow{B}}$(Schlaufe)=$\overrightarrow{A}\cdot \overrightarrow{B}$, $\overrightarrow{A}$ senkrecht Schlaufe Länge Fläche Schlaufe
+						\item Spannung \textbf{Schlaufe} : $U_{ind}(t) = U_{0}sin(2\pi vt)$
+						\item Amplitude: $U_{0} = \omega |\overrightarrow{A}||\overrightarrow{B}|$
+						\item Frequenz: $v = \dfrac{\omega}{2\pi}$
+					\end{itemize}	
+				\subsection{Linienintegral des magnetischen Feldes}
+					\begin{itemize}\itemsep0pt
+						\item $\int_{\gamma} \overrightarrow{B} \cdot d \overrightarrow{\gamma} = \mu_{0}\Phi_{\overrightarrow{j}}(\Omega) + \mu_{0}\varepsilon_{0} \dfrac{d}{dt} \Phi_{\overrightarrow{E}}(\Omega)$
+						\item Das Linienintegral des magnetischen Feldes $\overrightarrow{B}$ über einer Kurve $\gamma$ ist gleich der zeitlichen Änderung des Flusses des elektrischen Feldes (mal $\mu_{0}\varepsilon_{0}$) durch eine von $\gamma$ berandete Fläche $\Omega$ plus dem Fluss der Stromdichte durch $\Omega$ mal $\mu_{0}$
+						\item Das Linienintegral des magnetischen Feldes $\overrightarrow{B}$ über einer Kurve $\gamma$ ist gleich der zeitlichen Änderung des Flusses des elektrischen Feldes (mal $\mu_{0}\varepsilon_{0}$) durch eine von $\gamma$ berandete Fläche $\Omega$ plus dem Fluss der Stromdichte durch $\Omega$ mal $\mu_{0}$
+						\item $\mu_{0}= 1.26\cdot 10^{-6}[T\cdot m\cdot A^{-1}]$
+						\item Magnetfeld um \textbf{langen geraden Leiter}: $B= \dfrac{\mu_{0}I}{2\pi r}$
+						\item Magnetfeld in \textbf{Spuhle}: $B= \mu_{r} \mu_{0} \dfrac{N}{L}I$
+					\end{itemize}	
+					\textbf{Rechte Hand Regel}
+					\begin{itemize}\itemsep0pt
+						\item Daumen: Richtung der positiven Ladung
+						\item Rest: Umlaufsinn des $\overrightarrow{B}$-Feldes um I
+					\end{itemize}		
+					
+			\section{Frequenz und Kreisfrequenz}
+				\begin{itemize}\itemsep0pt
+					\item Frequenz : $f(t) = sin(2\pi vt)$
+					\item Periode: $T = \dfrac{1}{v}$
+					\item Frequenz: $\omega = 2\pi v$
+				\end{itemize}	
+				
+				\subsection{Wechselstrom}
+					\begin{itemize}\itemsep0pt
+						\item Nennspannung : $U_{N} = \dfrac{U_{0}}{\sqrt{2}}$
+						\item Spannung: $U(t) = U_{0}sin(2\pi vt + \phi_{0})$
+						\item $U_{0}$: Amplitude
+						\item $\phi_{0}$: Phasenkonstante
+					\end{itemize}	
+				\subsection{Transformatoren}
+					\includegraphics[height=7cm]{img/transformator.png} 
 
 \end{multicols*}
 

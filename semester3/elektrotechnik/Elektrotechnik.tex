@@ -44,7 +44,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-   \fancyfoot[C]{\textbf{Elektrotechnik}}
+   \fancyfoot[C]{\textbf{Elektrotechnik}, Seite \thepage}
    \renewcommand{\headrulewidth}{0.0pt} %obere Linie ausblenden
    \renewcommand{\footrulewidth}{0.1pt} %obere Linie ausblenden
 
@@ -489,7 +489,7 @@
 						\end{itemize}		
 						\includegraphics[height=4.6cm]{img/elemot.png} 
 			\section{Maxwellgleichungen}
-				\subsection{Gauss’sche Gesetz (Elektischer Fluss)}
+				\subsection{Gauss’sche Gesetz (Elektrischer Fluss)}
 					\begin{itemize}\itemsep0pt
 						\item $\Phi_{\overrightarrow{E}}(\Sigma) = \int_{V}\dfrac{\rho}{\varepsilon_{0}}dV = \dfrac{Q}{\varepsilon_{0}}$
 						\item Der Fluss des elektrischen Feldes $\overrightarrow{E}$ durch eine geschlossene Fläche $\Sigma$ ist gleich dem Volumenintegral über die Ladungsdichte $\rho / \varepsilon_{0}$ innerhalb von $\Sigma$, also gleich der von $\Sigma$ eingeschlossenen Ladung $Q$ geteilt durch $\varepsilon_{0}$
@@ -544,6 +544,172 @@
 					\end{itemize}	
 				\subsection{Transformatoren}
 					\includegraphics[height=7cm]{img/transformator.png} 
+					
+			\section{Wellen}
+				\subsection{Wellengleichung}
+					\begin{itemize}\itemsep0pt
+						\item $c = \lambda f$
+						\item $\lambda = \dfrac{2\pi}{k}$
+						\item $T = \dfrac{1}{f}$
+						\item Geschwindigkeit: $c$
+						\item Vakuum: Geschwindigkeit: $c_{v} = 3\cdot 10^{8}$ m/s 
+						\item Wellenlänge: $\lambda$ 
+						\item Wellenzahl $k$ 
+						\item Frequenz: $f$
+						\item Periode: $T$
+					\end{itemize}	
+				
+					
+				\subsection{Elektromagnetische Strahlung}		
+					\subsubsection{Ebene Welle}
+						\begin{itemize}\itemsep0pt
+							\item Bei einer ebenen Welle ist
+das $\overrightarrow{E}$ -Feld in einer Ebene senkrecht zur Ausbreitungsrichtung überall gleich gross
+							\item $\overrightarrow{E}(y,t) = \begin{pmatrix}0\\0\\E_{0}sin(2\pi ft-ky)\end{pmatrix}$
+							\item Allgemein sehen elektromagnetische Wellen in kleinen Raumgebieten und weit weg vom Sender aus wie ebene Wellen ("weit weg" = mehrere Wellenlängen), auch wenn sie global gesehen natürlich keine ebenen Wellen sind
+							\item $\overrightarrow{k}=k\overrightarrow{n}_{w}=\dfrac{2\pi}{\lambda}\overrightarrow{n}_{W}$
+							\item $\overrightarrow{B}=\dfrac{1}{2\pi f}\overrightarrow{k}\times \overrightarrow{E}$
+							\item $|\overrightarrow{E}| = c|\overrightarrow{B}|$
+							\item $\overrightarrow{E}(\overrightarrow{r},t) = \overrightarrow{E}_{0}sin(2\pi ft-\overrightarrow{k}\cdot \overrightarrow{r})$
+							\item $\overrightarrow{B}(\overrightarrow{r},t) = \overrightarrow{B}_{0}sin(2\pi ft-\overrightarrow{k}\cdot \overrightarrow{r})$
+							
+						\end{itemize}	
+					\subsubsection{Intensität}
+						\begin{itemize}\itemsep0pt
+							\item Mit der Intensität $I_{em}$ einer ebenen Welle gibt man die Energie an, die pro Zeiteinheit auf eine \textbf{senkrecht} zur Wellenausbreitung ausgerichteten \textbf{Fläche} auftrifft (Leistung pro Fläche)
+							\item $I_{em}=\dfrac{E_{0}B_{0}}{2\mu_{0}}=\dfrac{E_{0}^{2}}{2c\mu_{0}} = \dfrac{cB_{0}^{2}}{2\mu_{0}}$
+						\end{itemize}
+						
+					\subsubsection{Strahlungsdruck}
+						\begin{itemize}\itemsep0pt
+							\item Wird eine Ladung in die Richtung des $\overrightarrow{E}$-Feldes beschleunigt, führt das zu einer Geschwindigkeit in diese Richtung
+							\item Das $\overrightarrow{B}$-Feld führt dadurch zu einer Kraft nach vorne
+							\item Eine ebene Welle führt zu einem Druck $p_{s}$ auf leichtbewegliche Ladungen
+							\item $p_{s}=\dfrac{I_{em}}{c}= \dfrac{E_{0}B_{0}}{2c\mu_{0}}=\dfrac{E_{0}^{2}}{2c^{2}\mu_{0}} = \dfrac{B_{0}^{2}}{2\mu_{0}}$
+						\end{itemize}	
+						
+					
+					\subsubsection{Stabantenne}
+						\begin{itemize}\itemsep0pt
+							\item $\overrightarrow{E}$-Feld wirkt auch auf Ladung in der Antenne
+							\item Ein Teil der Energie fliesst daher wieder in die Antenne zurück
+							\item $h \leq \dfrac{\lambda}{2} \Rightarrow \eta = \dfrac{P_{out}}{P_{in}}\approx \dfrac{8h^{3}}{\lambda^{3}}$
+							\item h: Höhe der Antenne
+							\item Maximale Effizienz: $\lambda = 2$h
+							\item Signal wird in Trägersignal umgewandelt, dass sich schneller ändert
+							\item Phasenmodulation: phasesig$(t) = sin(2\pi f t + U(t))$
+							\item Amplitudenmodulation: amplsig$(t)=U(t) \cdot sin(2\pi ft)$
+						\end{itemize}	
+					\subsubsection{Superposition von Wellen}
+						\textbf{Addition von Wellen}
+						\begin{itemize}\itemsep0pt
+							\item Wellen dürfen beliebig addiert werden
+						\end{itemize}	
+						\textbf{Stehende Wellen}
+						\begin{itemize}\itemsep0pt
+							\item Die Summe einer von rechts nach links und einer von links nach rechts laufenden Welle gibt eine sogenannte stehende Welle
+							\item $E_{0} sin(2\pi ft - ky)+E_{0} sin(2\pi ft+ky)=2E_{0} sin(2\pi ft)cos(ky)$
+						\end{itemize}	
+						
+				\subsection{Lichtbrechung}
+					\includegraphics[height=4cm]{img/brechung.png} 
+					\begin{itemize}\itemsep0pt
+						\item Wenn ein Lichtstrahl auf die Grenzfläche zwischen zwei Materialien trifft, wird ein Teil des Lichts reflektiert, ein anderer Teil dringt in das Material ein
+						
+						\item $\dfrac{sin(\alpha)}{sin(\beta)}=\dfrac{c_{1}}{c_{2}}=\dfrac{n_{2}}{n_{1}}$
+						\item $sin(\beta)\leq \dfrac{n_{1}}{n_{2}}$
+					\end{itemize}	
+					
+					
+					\subsubsection{Glasfaserkabel}
+						\begin{itemize}\itemsep0pt
+							\item $\dfrac{c_{G}}{c_{v}}=\dfrac{n_{v}}{n_{G}}$
+							\item Lichtgeschwindigkeit Vakuum: $c_{v} = 3\cdot 10^{8}$ m/s 
+							\item Signalgeschwindigkeit: $c_{G}$
+							\item Brechungsindex Vakuum: $n_{v}$ 
+							\item Brechungsindex Glas: $n_{G}$ 
+						\end{itemize}	
+						
+				\section{Thermische Strahlung}
+					\begin{itemize}\itemsep0pt
+						\item Jedes Objekt mit einer Temperatur grösser 0 K / -273.25 C strahlt elektromagnetische Strahlung ab
+						\item Intensität = $\dfrac{\text{Energie}}{\text{Fläche} \times \text{Zeit}}$
+						\item Ein Objekt ist in einem thermischen Gleichgewicht, wenn seine Temperatur sich nicht ändert und es ausser Wärmeenergie netto keine Energie aufnimmt oder abgibt
+					\end{itemize}
+					
+					\subsection{Photon}
+						\begin{itemize}\itemsep0pt
+							\item Energie eines Photons: $E = hv$
+							\item $v$: Frequenz
+							\item Planck'sche Konstante $h: 6.626\cdot 10^{-34} [Js] $
+						\end{itemize}						
+					
+					\subsection{Absorption Reflexion Emission}
+						\begin{itemize}\itemsep0pt
+							\item Für einen undurchsichtigen Körper gilt: Alles auftreffende Licht wird geschluckt oder reflektiert
+							\item $\alpha$ (Absorptionskoeffizient) wird absoripiert/geschluckt
+							\item $\rho = 1 - \alpha$ (Reflexionskoeffizientent) wird reflektiert
+							\item Reflexions- und Absorptionskoeffizient können frequenzabhängig sein $\alpha = \alpha(v)$ 
+							
+							\item $ \alpha_{1\rightarrow 2} + \rho_{1\rightarrow 2} = 1$
+							\item Wenn elektromagnetische Strahlung von innen auf die Grenzschicht trifft, kommt es auch zu Reflexion 
+							\item Für einen schwarzen Strahler macht es keinen Unterschied, ob ein Strahl von aussen oder innen auf die Trennschicht trifft
+							\item Schwarzen Strahler: $ \alpha_{1\rightarrow 2} = \alpha_{2\rightarrow 1} $
+							\item Schwarzen Strahler: $ \rho_{1\rightarrow 2} = \rho_{2\rightarrow 1} $
+							\item Emission: $ \varepsilon_{2\rightarrow 1} = \alpha_{2\rightarrow 1} $
+						\end{itemize}		
+						
+						\includegraphics[height=4cm]{img/absopreflex.png} 
+					
+					\subsection{Schwarzer Körper}
+						\begin{itemize}\itemsep0pt
+							\item \textbf{Schwarzer Strahler}: für alle Frequenzen $\alpha = 1$ 
+							\item Auch ein schwarzer Strahler kann bei hohen Temperaturen leuchten (Sonne)
+						\end{itemize}	
+						
+						\subsubsection{Das Planck’sche Strahlungsgesetz}
+							\begin{itemize}\itemsep0pt
+								\item Jeder Körper mit einer Temperatur T strahlt einen Mix elektromagnetisches Wellen ab
+								\item Für alle schwarzen Strahler ist dieser Mix gleich. Der Mix hängt von der Temperatur aber nicht von der Struktur oder Material ab
+								\item $I(v,T)= \dfrac{2h\pi v^{3}}{c^{2}}\dfrac{1}{e^{\frac{hv}{k_{B}T}}-1}$
+								\item $I(\lambda ,T)= \dfrac{2h\pi c^{2}}{\lambda^{5}}\dfrac{1}{e^{\frac{hc}{\lambda k_{B}T}}-1}$
+								\item Planck'sche Konstante $h: 6.626\cdot 10^{-34} [Js] $
+								\item Intensitäten als für verschiedene Temperaturen:
+							\end{itemize}	
+						
+						
+							\includegraphics[height=5cm]{img/planck.png} 
+							\begin{itemize}\itemsep0pt
+								\item Je heisser ein Objekt ist, desto grösser ist die Intensität der thermischen Strahlung
+								\item Je heisser ein Objekt ist, desto kürzer ist die Wellenlänge des Hauptteils der Strahlung, bzw. desto höher ist dessen Frequenz
+
+							\end{itemize}	
+					
+						\subsubsection{Wien’sches Verschiebungsgesetz}
+							\begin{itemize}\itemsep0pt
+								\item $\lambda_{\text{max}}=\dfrac{b}{T}$
+								\item $b = 2.8978 \cdot 10^{-3} [mK]$
+								\item Bei hinreichend hoher Temperatur liegt die Wellenlänge $\lambda_{\text{max}}$ im sichtbaren Bereich
+								\item Liegt das Strahlungsmaximum im grünen Bereich, gibt es immer rote und blaue Anteile. Unsere Farbwahrnehmung mixt dies zu weisslich
+								\item Mit Hilfe des Wien’schen Verschiebungsgesetzes kann die Temperatur eines Sterns bestimmt werden.
+							\end{itemize}	
+						
+						\subsubsection{Stefan - Boltzmann Gesetz}
+							\begin{itemize}\itemsep0pt
+								\item Gesamtleistung $P_{\text{rad}}$ der Strahlung eines Körpers mit Oberfläche A und Temperatur T
+								\item $P_{\text{rad}} = \sigma AT^{4}$
+								\item Eine Verdoppelung der Temperatur führt also zu einer Versechzehnfachung der abgestrahlten Leistung
+							\end{itemize}	
+
+						\subsubsection{Grauer Körper}
+							\begin{itemize}\itemsep0pt
+								
+								\item Der Emissions-/Absorptionskoeffizient kann von der Temperatur und der Wellenlänge abhängen
+								\item Meist spielt die Temperaturabhängigkeit aber keine grosse Rolle
+								\item Die Wellenlängenabhängigkeit ist für die meisten Materialien über grosse Wellenlängenbereiche konstant	
+							\end{itemize}	
+
+
 
 \end{multicols*}
 

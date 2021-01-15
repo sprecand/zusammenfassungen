@@ -1,11 +1,9 @@
-% Mathe Formelsammlung für HM1 ZHAW
-% 2 Seiten
-
-
+% Mathe Formelsammlung für Elektrotechnik ZHAW
+%
 % Dokumenteinstellungen
 % ======================================================================
 
-% Dokumentklasse (Schriftgröße 6, DIN A4, Artikel)
+% Dokumentklasse (Schriftgröße 8, DIN A4, Artikel)
 \documentclass[8pt,a4paper]{scrartcl}
 
 % Zusätzliche Pakete laden
@@ -168,6 +166,10 @@
 				\begin{itemize}\itemsep0pt					
 					\item Eine Kraft verändert die Geschwindigkeit eines Objektes, d.h. das Objekt wird beschleunigt (oder gebremst). 
 				\end{itemize}
+				\subsubsection{Beschleunigung}
+					\begin{itemize}\itemsep0pt				
+						\item $F=ma$
+					\end{itemize}
 				\subsubsection{Schwerkraft}
 					\begin{itemize}\itemsep0pt				
 						\item $F=\gamma\dfrac{M_{1}M_{2}}{r^{2}}, \gamma = 6.67*10^{-11}\dfrac{Nm^{2}}{kg^{2}}$
@@ -186,7 +188,7 @@
 			\begin{itemize}\itemsep0pt				
 				\item $E_{pot}=mgh$
 				\item $E_{kin}=m\dfrac{v^{2}}{2}$
-				\item $E_{spring}=k\dfrac{(x-L)^{2}}{2}$
+				\item $E_{spring}=k\dfrac{(x-L)^{2}}{2}$, $(x-L)$: Auslenkung
 				\item $E_{pot. Ladung}=qU$
 				\item Arbeit: $\Delta E_{mech}=Fs$			
 			\end{itemize}
@@ -199,11 +201,12 @@
 
 		\subsubsection{Energieerhaltung}			
 			\begin{itemize}\itemsep0pt		
-				\item Bei physikalischen Prozessen bleibt die Gesamtmenge Energie im betrachteten System und der Umgebung immer erhalten! 					
-				\item Veränderungen geschehen durch physikalische Kräfte. 
-				\item Diese physikalischen Kräfte können nicht beliebig aussehen. Ihre Form ist z.B. durch die Forderung, dass die physikalischen Gesetze sich im Laufe der Zeit nicht ändern, etwas eingeschränkt. 
-				\item Diese Einschränkung führt dazu, dass einem physikalischen System eine Zahl zugeordnet werden kann, deren Grösse durch die Einwirkung der Kräfte nicht geändert werden kann. 		
-				\item Die Erhaltung der Energie ist nicht eine Folge der Tatsache, dass irgendeine Energiesubstanz erhalten bleibt, sondern dass die Gesetze der Physik so gestaltet sind, dass sie die Energie nicht verändern können. 
+				\item In einem System und der Umgebung bleibt die \textbf{Gesamtmenge} der Energie erhalten			
+				\item Veränderungen geschehen durch physikalische Kräfte
+				\item Diese physikalischen Kräfte können nicht beliebig aussehen. Ihre Form ist z.B. durch die Forderung, dass die physikalischen Gesetze sich im Laufe der Zeit nicht ändern, etwas eingeschränkt
+				\item Diese Einschränkung führt dazu, dass einem physikalischen System eine Zahl zugeordnet werden kann, deren Grösse durch die Einwirkung der Kräfte nicht geändert werden kann
+				\item Die Erhaltung der Energie ist nicht eine Folge einer Energiesubstanz
+				\item Die Gesetze der Physik sind so gestaltet, dass sie die Gesamtmenge der Energie nicht verändern können
 				
 			\end{itemize}
 
@@ -277,8 +280,8 @@
 					\end{itemize}
 				\end{multicols*}
 				\begin{itemize}\itemsep0pt
-					\item Eine \textbf{Masche} oder Schlaufe ist irgendein Weg durch Drähte und Bauelemente, welche zu seinem Ausgangspunkt zurückführt.
-					\item Die Spannung wird in Richtung Spannungsgefälle positiv gezählt, sonst negativ.
+					\item Eine \textbf{Masche} oder Schlaufe ist ein Weg durch Drähte und Bauelemente, welcher zu seinem Ausgangspunkt zurückführt
+					\item Die Spannung wird in Richtung Spannungsgefälle positiv gezählt
 					\item Bei einem \textbf{Knoten} kommen mindestens drei Drähte zusammen.
 					\item Durch die Ladungserhaltung muss die Summe der einfliessenden minus der Summe der wegfliessenden Ströme null ergeben.
 					\item Kabelwiderstand $R = \rho\dfrac{L}{A}$							\end{itemize}			
@@ -292,6 +295,13 @@
 					\begin{itemize}\itemsep0pt
 						\item Parallelschaltung $R=\dfrac{R_{1} \cdot R_{2}}{R_{1} + R_{2}}$
 						\item Parallelschaltung $I_{0}=U_{0}(\dfrac{1}{R_{1}} + \dfrac{1}{R_{2}})$
+					\end{itemize}
+					
+				\subsubsection{Mehrer Quellen}	
+					\begin{itemize}\itemsep0pt
+						\item Superpositionsprinzip: Jede Quelle wird einzeln analysiert und anschliessend wird addiert
+						\item Analyse: Spannungsquellen werden durch einen Kurzschluss ersetzt, Stromquellen durch eine offene Verbindung
+						\item Wenn Dioden vorkommen, ist die Schaltung nicht mehr linear, das Superkompositionsprinzip gilt nicht mehr
 					\end{itemize}
 			
 			
@@ -398,10 +408,17 @@
 						\item Wenn beide Eins sind, wechselt der Ausgang bei jeder aktiven Clockflanke
 					\end{itemize}
 					
-			\subsection{KV-Diagramm}
-				\includegraphics[height=6.5cm]{img/kv1.png} 
-				\includegraphics[height=3cm]{img/kv2.png} 
-				\includegraphics[height=7cm]{img/kv3.png} 
+				\subsection{KV-Diagramm}
+					\includegraphics[height=6.5cm]{img/kv1.png} 
+					\includegraphics[height=3cm]{img/kv2.png} 
+					\includegraphics[height=7cm]{img/kv3.png} 
+				
+				\subsubsection{Glitches}
+					\begin{itemize}\itemsep0pt
+						\item Wenn beim Schaltungsentwurf jeder Signalpfad die selbe Anzahl Logikgatter durchläuft, können Gliches vermieden werden
+						\item KV-Diagramme allein sind daher keine gutes Entwurfsmuster für glitchfreie Schaltungen
+						\item Wird bei einem RLC-Schwingkreis die Induktivität erhöht, verkürzt sich die Periodendauer nicht
+					\end{itemize}
 
 
 		\section{Elektrische und Magnetische Felder}
@@ -429,6 +446,8 @@
 					\item $\overrightarrow{E}(\overrightarrow{r},t), [\dfrac{N}{C}]$
 					\item Werden erzeugt durch Ladung oder zeitlich veränderliche magnetische Felder (Mehrer Quellen: Vektorsumme (Superpositionsprintzip))
 					\item Das elektrische Feld zeigt von positiven Ladungen zu negativen Ladungen hin
+					\item Das elektrische Feld übt eine Kraft aus, die proportional zur Stärke des Feldes ist
+					\item Im Inneren eines geladenen Metallstück ist das elektrische Feld null
 				\end{itemize}
 			
 				Ladung $Q$ an Ort $\overrightarrow{r}_{Q}$ erzeug $\overrightarrow{E}$-Feld:		
@@ -450,7 +469,6 @@
 				\begin{itemize}\itemsep0pt
 					\item $\overrightarrow{B}(\overrightarrow{r},t), [\dfrac{kg}{s\cdot C}]$
 					\item Werden erzeugt durch Ströme oder zeitlich veränderliche elektrische Felder (Mehrer Quellen: Vektorsumme (Superpositionsprintzip))
-					\item Das Magnetfeld zeigt vom Nord- zum Südpol
 					\item Das Magnetfeld zeigt vom Nord- zum Südpol
 				\end{itemize}
 				
@@ -489,6 +507,11 @@
 						\end{itemize}		
 						\includegraphics[height=4.6cm]{img/elemot.png} 
 			\section{Maxwellgleichungen}
+				\begin{itemize}\itemsep0pt
+					\item Beschriebt unter anderem wie sich Licht als elektromagnetische Welle ausbreitet
+				\end{itemize}				
+			
+			
 				\subsection{Gauss’sche Gesetz (Elektrischer Fluss)}
 					\begin{itemize}\itemsep0pt
 						\item $\Phi_{\overrightarrow{E}}(\Sigma) = \int_{V}\dfrac{\rho}{\varepsilon_{0}}dV = \dfrac{Q}{\varepsilon_{0}}$
@@ -509,7 +532,7 @@
 						\item Die Änderung des Flusses eines Magnetfeldes durch eine Schlaufe induziert in dieser eine Spannung U
 						\item $U=-\dfrac{d}{dt}\Phi_{\overrightarrow{B}}$(Schlaufe)
 						\item $\Phi_{\overrightarrow{B}}$(Schlaufe)=$\overrightarrow{A}\cdot \overrightarrow{B}$, $\overrightarrow{A}$ senkrecht Schlaufe Länge Fläche Schlaufe
-						\item Spannung \textbf{Schlaufe} : $U_{ind}(t) = U_{0}sin(2\pi vt)$
+						\item Spannung \textbf{Schlaufe}: $U_{ind}(t) = U_{0}sin(2\pi vt)$
 						\item Amplitude: $U_{0} = \omega |\overrightarrow{A}||\overrightarrow{B}|$
 						\item Frequenz: $v = \dfrac{\omega}{2\pi}$
 					\end{itemize}	
@@ -572,6 +595,7 @@ das $\overrightarrow{E}$ -Feld in einer Ebene senkrecht zur Ausbreitungsrichtung
 							\item $|\overrightarrow{E}| = c|\overrightarrow{B}|$
 							\item $\overrightarrow{E}(\overrightarrow{r},t) = \overrightarrow{E}_{0}sin(2\pi ft-\overrightarrow{k}\cdot \overrightarrow{r})$
 							\item $\overrightarrow{B}(\overrightarrow{r},t) = \overrightarrow{B}_{0}sin(2\pi ft-\overrightarrow{k}\cdot \overrightarrow{r})$
+							\item Oszillierende Ströme in Leitern erzeugen elektromagnetische Wellen
 							
 						\end{itemize}	
 					\subsubsection{Intensität}
@@ -615,9 +639,9 @@ das $\overrightarrow{E}$ -Feld in einer Ebene senkrecht zur Ausbreitungsrichtung
 					\includegraphics[height=4cm]{img/brechung.png} 
 					\begin{itemize}\itemsep0pt
 						\item Wenn ein Lichtstrahl auf die Grenzfläche zwischen zwei Materialien trifft, wird ein Teil des Lichts reflektiert, ein anderer Teil dringt in das Material ein
-						
 						\item $\dfrac{sin(\alpha)}{sin(\beta)}=\dfrac{c_{1}}{c_{2}}=\dfrac{n_{2}}{n_{1}}$
 						\item $sin(\beta)\leq \dfrac{n_{1}}{n_{2}}$
+						\item Der Brechungsindex im Vakuum ist $n_{v} = 1$
 					\end{itemize}	
 					
 					
@@ -626,7 +650,7 @@ das $\overrightarrow{E}$ -Feld in einer Ebene senkrecht zur Ausbreitungsrichtung
 							\item $\dfrac{c_{G}}{c_{v}}=\dfrac{n_{v}}{n_{G}}$
 							\item Lichtgeschwindigkeit Vakuum: $c_{v} = 3\cdot 10^{8}$ m/s 
 							\item Signalgeschwindigkeit: $c_{G}$
-							\item Brechungsindex Vakuum: $n_{v}$ 
+							\item Brechungsindex Vakuum: $n_{v} = 1$ 
 							\item Brechungsindex Glas: $n_{G}$ 
 						\end{itemize}	
 						
@@ -698,6 +722,7 @@ das $\overrightarrow{E}$ -Feld in einer Ebene senkrecht zur Ausbreitungsrichtung
 							\begin{itemize}\itemsep0pt
 								\item Gesamtleistung $P_{\text{rad}}$ der Strahlung eines Körpers mit Oberfläche A und Temperatur T
 								\item $P_{\text{rad}} = \sigma AT^{4}$
+								\item $\sigma = 5.67\cdot 10^{-8} [\dfrac{W}{m^{2}K^{4}}]$
 								\item Eine Verdoppelung der Temperatur führt also zu einer Versechzehnfachung der abgestrahlten Leistung
 							\end{itemize}	
 

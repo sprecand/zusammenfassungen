@@ -7,111 +7,45 @@
 \documentclass[8pt,a4paper]{scrartcl}
 
 % Zusätzliche Pakete laden
-\usepackage[utf8]{inputenc}        % Zeichenkodierung: UTF-8 (für Umlaute)
-\usepackage[german]{babel}        % Deutsche Sprache
-\usepackage{multicol}            % Spaltenpaket
-\usepackage{amsmath}            % erlaubt mathematische Formeln
-\usepackage{amssymb}            % Verschiedene Symbole
-\usepackage{esint}                % erweiterte Integralsymbole
-\usepackage{booktabs}            % bessere Tabellenlinien
-\usepackage{graphicx}            % Zum Bilder einfügen benötigt
-\usepackage{color}                % Farbiger Text möglich
-\usepackage{pbox}                % Intelligent parbox: \pbox{maximum width}{blabalbalb \\ blabal}
-%\usepackage{undertilde}            % Für Welle unterhlab von Matrixbuchstaben benötigt
-\usepackage{accents}            % Für eigene Ableitungspunkte benötigt
-\usepackage{scrtime}
-\usepackage{supertabular}        % Für lange Tabellen mit Umbruch
-\usepackage{pdfpages}
-\usepackage{trfsigns}            % Laplace und Fourier
-\usepackage{array}
-
+\usepackage[utf8]{inputenc}		% Zeichenkodierung: UTF-8 (für Umlaute)
+\usepackage[german]{babel}		% Deutsche Sprache
+\usepackage{multicol}					% Spaltenpaket
+\usepackage{amsmath}				% erlaubt mathematische Formeln
+\usepackage{amssymb}				% Verschiedene Symbole
+\usepackage{graphicx}				% Zum Bilder einfügen benötigt
 
 % Seitenlayout und Ränder:
 \usepackage{geometry}
 \geometry{a4paper,landscape, left=6mm,right=6mm, top=-1mm, bottom=5mm,includeheadfoot}
 \setlength{\parindent}{0mm}
 
-
 % Dokumentbeschreibung
 \title{Formelsammlung Höhere Mathematik 1 ZHAW IT HS2020}
 \author{Andreas Sprecher}
-
 
 % Kopf- und Fußzeile
 % ======================================================================
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-   \fancyfoot[C]{\textbf{Höhere Mathematik}, Seite \thepage}
-   \renewcommand{\headrulewidth}{0.0pt} %obere Linie ausblenden
-   \renewcommand{\footrulewidth}{0.1pt} %obere Linie ausblenden
 
-   \fancyfoot[R]{Stand: \todayV}
-   \fancyfoot[L]{Andreas Sprecher}
-% ----------------------------------------------------------------------
+\renewcommand{\headrulewidth}{0.0pt}				%obere Linie ausblenden
+\renewcommand{\footrulewidth}{0.1pt}					%obere Linie ausblenden
 
-% Ausgegraut zum Abschreiben:
-%\definecolor{grey}{rgb}{0.6,0.6,0.6}
-%\color{grey}
+\fancyfoot[L]{Andreas Sprecher}
+\fancyfoot[C]{\textbf{Höhere Mathematik}, Seite \thepage}
+\fancyfoot[R]{Stand: \todayV}
 
 % Befehle und Befehlsüberschreibungen
 % ======================================================================
-
-% Schriftart SANS für bessere Lesbarkeit bei kleiner Schrift
-\renewcommand{\familydefault}{\sfdefault}
-% Array- und Tabellenabstände vergrößern
-\renewcommand{\arraystretch}{1.2}
-
-% Befehle sichern
-\let\oldvec = \vec
-\let\olddot = \dot
-
-% Eigene Befehle
-\newcommand{\todayV}{\the\day.\the\month.\the\year}                          %%D.M.YYYY
-
-\newcommand{\iset}[2]{\ensuremath{\bigl\{ \bigl. #1 \, \bigr| \, #2 \bigr\}}}                   % intensional set
-\newcommand{\eset}[1]{\ensuremath{\bigl\{#1\bigr\}}}                                            % extensional set
-%\newcommand{\enbrace}[1]{\ensuremath{\bigl\(#1\bigr\)}}                                        % extensional set
-\newcommand{\enbrace}[1]{\ensuremath{\left(#1\right)}}
-\newcommand{\norm}[1]{\ensuremath{\|#1\|}}                                                      % Norm
-\newcommand{\mat}[1]{\ensuremath{\begin{bmatrix} #1 \end{bmatrix}}}                             % Matrix
-\newcommand{\ma}[1]{\ensuremath{\boldsymbol {#1}}}                                              % Matrixsymbol
-\newcommand{\vect}[1]{\ensuremath{\begin{pmatrix} #1 \end{pmatrix}}}                            % Vektor
-\newcommand{\mvect}[1]{\ensuremath{\left. \begin{matrix} #1 \end{matrix}  \right]}}             % Matrixvektornotation
-\newcommand{\gk}[1]{\ensuremath{\left\lfloor#1\right\rfloor}}                                   % Gaußklammer
-\newcommand{\sprod}[2]{\ensuremath{\left\langle #1, #2 \right\rangle }}                         % Skalarprodukt
-\newcommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}}                                      % Betrag
-\newcommand{\bdot}{\ensuremath{\boldsymbol \cdot}}                                              % Dicker Punkt für Skalarprodukt
-\newcommand{\svdots}{\ensuremath{\olddot :}}                                                    % small vertical dots
-\newcommand{\mustbe}{\stackrel{!}{=}}
-
-\newcommand{\inn}{\operatorname{int}}
-
-
-% Überschreibungen
-\renewcommand{\vec}[1]{\ensuremath{\boldsymbol {#1}}}                                           % Vektor fett und unterstrichen
-\renewcommand{\emph}[1]{\textbf{#1}}                                                            % Hervorhebungen fett
-\renewcommand*{\dot}[1]{\accentset{\mbox{\textrm{\large\bfseries .}} }{#1}}                     % Dicker Ableitungspunkt
-\renewcommand*{\ddot}[1]{\accentset{\mbox{\textrm{\large\bfseries .\hspace{-0.25ex}.}}}{#1}}    % Dicker Doppelableitungspunkt
-
-% Abkürzungen
-\newcommand{\ul}[1]{\ensuremath{\underline{#1}}}                               % Untersteichen
-\newcommand{\ol}[1]{\ensuremath{\overline{#1}}}                                % Überstreichen
-\newcommand{\Ra}[0]{\ensuremath{\Rightarrow}}                                  % Rightarrow
-\newcommand{\ra}[0]{\ensuremath{\rightarrow}}                                  % Rightarrow
-\newcommand{\bs}[1]{\ensuremath{\boldsymbol{#1}}}                              % Fett und kursiv im mathmode
-\newcommand{\diff}{\ensuremath{\;\mathrm d}}                                   % differentielles delta
-\newcommand{\grad}{\ensuremath{\mathrm{grad}\ }}                               % Gradient
-\renewcommand{\div}{\ensuremath{\mathrm{div}\ }}                               % Divergenz
-\newcommand{\rot}{\ensuremath{\mathrm{rot}\ }}                                 % Rotation
-\newcommand{\Sp}{\ensuremath{\mathrm{Sp}\ }}                                   % Spur
-\renewcommand{\i}{\ensuremath{\mathrm{i}}}                                     % Imaginäre Einheit
+\renewcommand{\familydefault}{\sfdefault}					% Schriftart SANS für bessere Lesbarkeit bei kleiner Schrift
+\renewcommand{\arraystretch}{1.2}								% Array- und Tabellenabstände vergrößern
+\newcommand{\todayV}{\the\day.\the\month.\the\year}	%D.M.YYYY
 
 % Für Mengen
 \newcommand{\N}{\ensuremath{\mathbb N}}
 \newcommand{\R}{\ensuremath{\mathbb R}}
 \newcommand{\C}{\ensuremath{\mathbb C}}
-
 
 %Custom functions
 \DeclareMathOperator{\arccot}{arccot}
@@ -120,11 +54,9 @@
 \DeclareMathOperator{\col}{col}
 \DeclareMathOperator{\row}{row}
 
-
 % Dokumentbeginn
 % ======================================================================
 \begin{document}
-
 
 % Aufteilung in Spalten
 \begin{multicols*}{3}

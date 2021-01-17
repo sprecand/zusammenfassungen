@@ -1,11 +1,10 @@
-% Mathe Formelsammlung für HM1 ZHAW
-% 2 Seiten
+% Formelsammlung für Stochastik & Statistik ZHAW IT HS2020
 
 
 % Dokumenteinstellungen
 % ======================================================================
 
-% Dokumentklasse (Schriftgröße 6, DIN A4, Artikel)
+% Dokumentklasse (Schriftgröße 8, DIN A4, Artikel)
 \documentclass[8pt,a4paper]{scrartcl}
 
 % Zusätzliche Pakete laden
@@ -30,12 +29,12 @@
 
 % Seitenlayout und Ränder:
 \usepackage{geometry}
-\geometry{a4paper,landscape, left=6mm,right=6mm, top=-1mm, bottom=3mm,includeheadfoot}
+\geometry{a4paper,landscape, left=6mm,right=6mm, top=-1mm, bottom=5mm,includeheadfoot}
 \setlength{\parindent}{0mm}
 
 
 % Dokumentbeschreibung
-\title{Formelsammlung Höhere Mathematik 1 ZHAW}
+\title{Formelsammlung Stochastik & Statistik ZHAW IT HS2020}
 \author{Andreas Sprecher}
 
 
@@ -131,11 +130,11 @@
 % Aufteilung in Spalten
 \begin{multicols*}{3}
 \setlength{\columnseprule}{0.4pt}
-    \parbox{3cm}{
-        \includegraphics[height=1.5cm]{./img/Logo.jpeg}
+    \parbox{4cm}{
+        \includegraphics[height=2cm]{./img/Logo.jpeg}
     }
     \parbox{4cm}{
-        \emph{\Large{Statistik}}
+        \emph{\Large{Stochastik \& Statistik}}
     }
     \vspace{-2mm} 
 
@@ -194,8 +193,7 @@
 					\item Wertepaare werden in ein kartesisches Koordinatensystem eingetragen
 					\item Eine Punktwolke entsteht
 				\end{itemize}	
-			\textbf{•}
-			
+
 		\subsection{Varianz \& Standartabweichung}  
 			\begin{itemize}\itemsep0pt				
 				\item Vorkommnis: 1, 4, 7
@@ -204,22 +202,21 @@
 				\item Standartabweichung: $\sigma = \sqrt{6}$
 				\item kor. Standartabweichung $\hat{\sigma} = \sqrt{9} = 3$
 			\end{itemize}
-		\section{Regression}
-			\subsection{Lineare Regression}
-				\begin{itemize}\itemsep0pt				
-					\item $g(x) = mx + d$
-					\item Steigung: $m = \dfrac{s_{xy}}{s_{xx}}$
-					\item $d = \bar{y} - m\bar{x}$
-					\item Kovarianz: $s_{xy} = \overline{x \cdot y} - \bar{x} \cdot \bar{y}$
-					\item Varianz der x-Werte: $s_{x}^{2}=s_{xx} = \overline{x^{2}} - \bar{x}^{2} = \dfrac{1}{n}\sum(x_{i}-\bar{x})^{2}  = \sigma^{2}(x)$
-					\item Totale Varianz: $s_{y}^{2}=s_{yy} = \overline{y^{2}} - \bar{y}^{2}=  \dfrac{1}{n}\sum(y_{i}-\bar{y})^{2} = \sigma^{2}(y)$
-					\item Residuenvarianz: $s_{\varepsilon}^{2} = s_{yy}-\dfrac{s_{xy}^{2}}{s_{xx}}$
-					\item Summe der Residuen Quadrate: $s_{\varepsilon}^{2}\cdot n$
-					\item Erklärte Varianz: $s_{\hat{y}}^{2}=s_{y}^{2}-s_{\varepsilon}^{2} $
-					\item Bestimmtheitsmass: $R^{2}=\dfrac{s_{\hat{y}}^{2}}{s_{y}^{2}}$
-					\item Pearson Korrelationskoeffizient: $R=r_{xy}=\dfrac{s_{xy}}{s_{x}s_{y}}$
-					\item Korrigiertes X: $X_{kor} = \dfrac{X\cdot n}{n-1}$
-				\end{itemize}
+		\section{Lineare Regression}
+			\begin{itemize}\itemsep0pt				
+				\item $g(x) = mx + d$
+				\item Steigung: $m = \dfrac{s_{xy}}{s_{xx}}$
+				\item $d = \bar{y} - m\bar{x}$
+				\item Kovarianz: $s_{xy} = \overline{x \cdot y} - \bar{x} \cdot \bar{y}$
+				\item Varianz der x-Werte: $s_{x}^{2}=s_{xx} = \overline{x^{2}} - \bar{x}^{2} = \dfrac{1}{n}\sum(x_{i}-\bar{x})^{2}  = \sigma^{2}(x)$
+				\item Totale Varianz: $s_{y}^{2}=s_{yy} = \overline{y^{2}} - \bar{y}^{2}=  \dfrac{1}{n}\sum(y_{i}-\bar{y})^{2} = \sigma^{2}(y)$
+				\item Residuenvarianz: $s_{\varepsilon}^{2} = s_{yy}-\dfrac{s_{xy}^{2}}{s_{xx}}$
+				\item Summe der Residuen Quadrate: $s_{\varepsilon}^{2}\cdot n$
+				\item Erklärte Varianz: $s_{\hat{y}}^{2}=s_{y}^{2}-s_{\varepsilon}^{2} $
+				\item Bestimmtheitsmass: $R^{2}=\dfrac{s_{\hat{y}}^{2}}{s_{y}^{2}}$
+				\item Pearson Korrelationskoeffizient: $R=r_{xy}=\dfrac{s_{xy}}{s_{x}s_{y}}$
+				\item Korrigiertes X: $X_{kor} = \dfrac{X\cdot n}{n-1}$
+			\end{itemize}
 				
 			\subsection{Korrelationskoeffizient $r_{xy}$}		
 				\begin{itemize}\itemsep0pt				
@@ -240,10 +237,13 @@
 				\subsubsection{Rang}		
 					\begin{itemize}\itemsep0pt				
 					\item $x_{i}: 12, 17, 6, 17, 23$
-					\item $rg(x_{i}): 2, 3.5, 1, 3.5, 5$
-					\item $\overline{rg(x)}: 3$
+					\item $rg(x_{i}): 2, 3.5, 1, 3.5, 5$,  $\overline{rg(x)}: 3$
 					\item $rg(x_{i})-\overline{rg(x)}: -1, 0.5, -2, 0.5, 2$
 					\item $r_{sp}=\dfrac{\sum (rg(x_{i})-\overline{rg(x)})(rg(y_{i})-\overline{rg(y)})}{\sqrt{\sum (rg(x_{i})-\overline{rg(x)})^{2}} \cdot \sqrt{\sum (rg(y_{i})-\overline{rg(y)})^{2}}}$
+					\item Bei ungebundenen Rängen kann die Vereinfachungsformel benutzt werden
+					\item $r_{sp}=1-\dfrac{6\cdot \sum_{i=1}^{n}d_{i}^{2}}{n(n^{2}-1)}$
+					\item $d_{i} = rg(x_{i})-rg(y_{i})$
+					
 				\end{itemize}
 				
 			 \subsection{Nichtlineares Verhalten}
@@ -265,25 +265,38 @@
 				\item Wenn aus $n$ unterschiedlichen \textbf{Kategorien} $m$ Elemente ausgewählt werden, dann gibt es ${n+m-1\choose m}$ mögliche Kombinationen.
 			\end{itemize}
 			
-		\section{Kenngrössen}
-			\begin{itemize}\itemsep0pt				
-				\item $E(X) = \sum P(X=x)$
-				\item $E(X+Y) = E(X) + E(Y)$
-				\item $E(aX) = aE(X)$
-				\item $V(X) = E(X) \cdot (x-E(X))^{2}$
-				\item $V(X) = E(X^{2}) - (E(X))^{2}$
-				\item $V(aX+b) = a^{2} \cdot V(X)$
-			\end{itemize}
+		\section{Spezielle Verteilungen}
+		
+			\subsection{E(X) und V(X)}
+				\begin{itemize}\itemsep0pt				
+					\item $E(X) = \int_{-\infty}^{\infty} f(x)\cdot xdx$
+					\item $E(X^{2})= \int_{-\infty}^{\infty} f(x)\cdot x^{2}dx$
+					\item $V(X) = E(X^{2})-(E(X))^{2}$
+				\end{itemize}
 			
-		\section{Intervallwahrscheinlichkeiten}		
-			\begin{itemize}\itemsep0pt				
-				\item $P(X \leq b) = \int_{-\infty}^b f(u)\delta u$
-				\item $P(a < X \leq b) = \int_{-\infty}^b f(u)\delta u - \int_a^\infty f(u)\delta u =  \int_a^b f(u)\delta u $
-				\item $P(X > a) = \int_a^\infty f(u)\delta u$
-			\end{itemize}	
+			\subsection{Kenngrössen}
+				\begin{itemize}\itemsep0pt				
+					\item $E(X) = \sum P(X=x)$
+					\item $E(X+Y) = E(X) + E(Y)$
+					\item $E(aX) = aE(X)$
+					\item $V(X) = E(X) \cdot (x-E(X))^{2}$
+					\item $V(X) = E(X^{2}) - (E(X))^{2}$
+					\item $V(aX+b) = a^{2} \cdot V(X)$
+				\end{itemize}
+			
+			\subsection{Intervallwahrscheinlichkeiten}		
+				\begin{itemize}\itemsep0pt				
+					\item $P(X \leq b) = \int_{-\infty}^b f(u)\delta u$
+					\item $P(a < X \leq b) = \int_{-\infty}^b f(u)\delta u - \int_a^\infty f(u)\delta u =  \int_a^b f(u)\delta u $
+					\item $P(X > a) = \int_a^\infty f(u)\delta u$
+				\end{itemize}	
+				
+			\subsection{Satz von Bayes}		
+				\begin{itemize}\itemsep0pt				
+					\item $P(A|B) = \dfrac{P(B|A)P(A)}{P(B)}$
+				\end{itemize}	
 			
 		\section{Diskrete Verteilungen}
-			
 			\subsection{Hypergeometrische Verteilung}
 				\begin{itemize}\itemsep0pt			
 					\item $X \sim H(N,M,n)$
@@ -295,7 +308,7 @@
 					\item $V(X) = n \cdot \dfrac{M}{N} (1-\dfrac{M}{N})\dfrac{N-n}{N-1}$
 				\end{itemize}	
 			
-			\subsection{Bernoulliverteilungverteilung}
+			\subsection{Bernoulliverteilung}
 				\begin{itemize}\itemsep0pt				
 					\item Bernoulli-Experimente sind Zufallsexperimente mit nur zwei möglichen Ergebnissen (0/1)
 					\item $P(X=1)=p$
@@ -381,20 +394,40 @@
 					\item Erwartungstreue Schätzfunktion $\Theta_{1}$ effizienter $\Theta_{2}$: $ V(\Theta_{1})<V(\Theta_{2})$
 					\item Konsistent $E(\Theta)\rightarrow\theta$ und $V(\Theta)\rightarrow 0$ für $n\rightarrow \infty$
 				\end{itemize}	
-				\subsection{Schätzfunktionen für die wichtigsten statistischen Parameter}
+				\subsection{Schätzfunktionen/Likelihood-Funktion}
 					\includegraphics[height=6cm]{img/schaetz1.png} 
+					
+					\textbf{$\lambda$ Verteilungsdichte}
+					\begin{itemize}\itemsep0pt				
+						\item Verteilungsdichte (PDF): $f(x) = \lambda \cdot e^{-\lambda x}, x \geq 0$
+						\item Likelihood-Funktion: $L(\lambda) = \lambda^{n}\cdot e^{-\lambda(x_{1}+...+x_{n})}, \lambda > 0$
+						\item $\lambda = \dfrac{n}{x_{1}+...+x_{n}} $
+					\end{itemize}	
+					
+					
+					
+					\textbf{0,1-wertigen Zufallsstichprobe}
+					\begin{itemize}\itemsep0pt				
+						\item Likelihood-Funktion: $L(p) = p^{x_{1}+...+x_{n}}\cdot (1-p)^{n-x_{1}-...-x_{n}}$
+						\item $p = \dfrac{x_{1}+...+x_{n}}{n} $
+					\end{itemize}	
 
-
+			\subsubsection{Hypothesentest}	
+				\begin{itemize}\itemsep0pt				
+					\item Nullhypothese $H_{0}$ und Alternativhypothesae $H_{A}$ aufstellen
+					\item Tabelle Parametertest in dieser Zusammenfassung konsultieren
+					\item Mit Hilfe der Tabelle Verteilung, Signifikanzniveau $\alpha$ und kritischer Bereich von $H_{A}$ bestimmen
+					\item Mit Hilfe der Tabelle die Testvariable berechnen
+					\item Testvariable mit kritischem Bereich vergleichen und entscheiden
+				\end{itemize}	
 
 \end{multicols*}
 
-
+\section{Tabellen}
 \setlength{\columnseprule}{0.4pt}
-\section{Vertrauensinterval}
-\includegraphics[height=8cm]{img/Vertrauensinterval.png}
-\section{Hypothesentest}
-\includegraphics[height=8cm]{img/Hypothesentest.png}
-\section{Parametertest}
+\subsection{Vertrauensintervall}
+\includegraphics[height=12cm]{img/Vertrauensintervall.png}
+\subsection{Parametertest}
 \includegraphics[height=14cm]{img/Parametertest.png} 
 
 
@@ -402,7 +435,7 @@
 
 \begin{multicols*}{2}
 
-\section{Tabellen}
+
 	\subsection{CDF $\Phi$(u) der Standardnormalverteilung}
 
 		\includegraphics[height=17cm]{img/Standardnormalverteilung.png}

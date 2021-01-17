@@ -1,4 +1,4 @@
-% Mathe Formelsammlung für Elektrotechnik ZHAW
+% Formelsammlung für Elektrotechnik ZHAW IT HS2020
 %
 % Dokumenteinstellungen
 % ======================================================================
@@ -28,12 +28,12 @@
 
 % Seitenlayout und Ränder:
 \usepackage{geometry}
-\geometry{a4paper,landscape, left=6mm,right=6mm, top=-1mm, bottom=3mm,includeheadfoot}
+\geometry{a4paper,landscape, left=6mm,right=6mm, top=-1mm, bottom=5mm,includeheadfoot}
 \setlength{\parindent}{0mm}
 
 
 % Dokumentbeschreibung
-\title{Formelsammlung Analysis ZHAW}
+\title{Formelsammlung Elektrotechnik ZHAW IT HS2020}
 \author{Andreas Sprecher}
 
 
@@ -125,8 +125,8 @@
 % Aufteilung in Spalten
 \begin{multicols*}{3}
 \setlength{\columnseprule}{0.4pt}
-    \parbox{3cm}{
-        \includegraphics[height=1.5cm]{./img/Logo.jpeg}
+    \parbox{4cm}{
+        \includegraphics[height=2cm]{./img/Logo.jpeg}
     }
     \parbox{4cm}{
         \emph{\Large{Elektrotechnik}}
@@ -416,7 +416,7 @@
 					\end{itemize}
 					
 				\subsection{KV-Diagramm}
-					\includegraphics[height=6.5cm]{img/kv1.png} 
+					\includegraphics[height=6.5cm]{img/kv1.png} \\
 					\includegraphics[height=3cm]{img/kv2.png} 
 					\includegraphics[height=7cm]{img/kv3.png} 
 				
@@ -578,6 +578,7 @@
 					
 			\section{Wellen}
 				\subsection{Wellengleichung}
+				\begin{multicols*}{2}
 					\begin{itemize}\itemsep0pt
 						\item $c = \lambda f$
 						\item $\lambda = \dfrac{2\pi}{k}$
@@ -589,7 +590,7 @@
 						\item Frequenz: $f$
 						\item Periode: $T$
 					\end{itemize}	
-				
+					\end{multicols*}
 					
 				\subsection{Elektromagnetische Strahlung}		
 					\subsubsection{Ebene Welle}
@@ -604,8 +605,8 @@ das $\overrightarrow{E}$ -Feld in einer Ebene senkrecht zur Ausbreitungsrichtung
 							\item $\overrightarrow{E}(\overrightarrow{r},t) = \overrightarrow{E}_{0}sin(2\pi ft-\overrightarrow{k}\cdot \overrightarrow{r})$
 							\item $\overrightarrow{B}(\overrightarrow{r},t) = \overrightarrow{B}_{0}sin(2\pi ft-\overrightarrow{k}\cdot \overrightarrow{r})$
 							\item Oszillierende Ströme in Leitern erzeugen elektromagnetische Wellen
-							
 						\end{itemize}	
+
 					\subsubsection{Intensität}
 						\begin{itemize}\itemsep0pt
 							\item Mit der Intensität $I_{em}$ einer ebenen Welle gibt man die Energie an, die pro Zeiteinheit auf eine \textbf{senkrecht} zur Wellenausbreitung ausgerichteten \textbf{Fläche} auftrifft (Leistung pro Fläche)
@@ -644,14 +645,16 @@ das $\overrightarrow{E}$ -Feld in einer Ebene senkrecht zur Ausbreitungsrichtung
 						\end{itemize}	
 						
 				\subsection{Lichtbrechung}
-					\includegraphics[height=4cm]{img/brechung.png} 
-					\begin{itemize}\itemsep0pt
-						\item Wenn ein Lichtstrahl auf die Grenzfläche zwischen zwei Materialien trifft, wird ein Teil des Lichts reflektiert, ein anderer Teil dringt in das Material ein
-						\item $\dfrac{sin(\alpha)}{sin(\beta)}=\dfrac{c_{1}}{c_{2}}=\dfrac{n_{2}}{n_{1}}$
-						\item $sin(\beta)\leq \dfrac{n_{1}}{n_{2}}$
-						\item Der Brechungsindex im Vakuum ist $n_{v} = 1$
-					\end{itemize}	
-					
+					\begin{multicols*}{2}
+						\includegraphics[height=4.75cm]{img/brechung.png} 
+						
+						\begin{itemize}\itemsep0pt
+							\item Wenn ein Lichtstrahl auf die Grenzfläche zwischen zwei Materialien trifft, wird ein Teil des Lichts reflektiert, ein anderer Teil dringt in das Material ein
+							\item $\dfrac{sin(\alpha)}{sin(\beta)}=\dfrac{c_{1}}{c_{2}}=\dfrac{n_{2}}{n_{1}}$
+							\item $sin(\beta)\leq \dfrac{n_{1}}{n_{2}}$
+							\item Der Brechungsindex im Vakuum ist $n_{v} = 1$
+						\end{itemize}	
+					\end{multicols*}
 					
 					\subsubsection{Glasfaserkabel}
 						\begin{itemize}\itemsep0pt

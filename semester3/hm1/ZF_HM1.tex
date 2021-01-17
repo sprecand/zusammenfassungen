@@ -1,12 +1,10 @@
-% Mathe Formelsammlung für HM1 ZHAW
-% 2 Seiten
-
+% Formelsammlung für HM1 ZHAW IT HS2020
 
 % Dokumenteinstellungen
 % ======================================================================
 
-% Dokumentklasse (Schriftgröße 6, DIN A4, Artikel)
-\documentclass[6pt,a4paper]{scrartcl}
+% Dokumentklasse (Schriftgröße 8, DIN A4, Artikel)
+\documentclass[8pt,a4paper]{scrartcl}
 
 % Zusätzliche Pakete laden
 \usepackage[utf8]{inputenc}        % Zeichenkodierung: UTF-8 (für Umlaute)
@@ -30,12 +28,12 @@
 
 % Seitenlayout und Ränder:
 \usepackage{geometry}
-\geometry{a4paper,landscape, left=6mm,right=6mm, top=-1mm, bottom=3mm,includeheadfoot}
+\geometry{a4paper,landscape, left=6mm,right=6mm, top=-1mm, bottom=5mm,includeheadfoot}
 \setlength{\parindent}{0mm}
 
 
 % Dokumentbeschreibung
-\title{Formelsammlung Höhere Mathematik 1 ZHAW}
+\title{Formelsammlung Höhere Mathematik 1 ZHAW IT HS2020}
 \author{Andreas Sprecher}
 
 
@@ -44,7 +42,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-   \fancyfoot[C]{\textbf{Höhere Mathematik 1}}
+   \fancyfoot[C]{\textbf{Höhere Mathematik}, Seite \thepage}
    \renewcommand{\headrulewidth}{0.0pt} %obere Linie ausblenden
    \renewcommand{\footrulewidth}{0.1pt} %obere Linie ausblenden
 
@@ -129,10 +127,10 @@
 
 
 % Aufteilung in Spalten
-\begin{multicols*}{4}
+\begin{multicols*}{3}
 \setlength{\columnseprule}{0.4pt}
-    \parbox{3cm}{
-        \includegraphics[height=1.5cm]{./img/Logo.jpeg}
+    \parbox{4cm}{
+        \includegraphics[height=2cm]{./img/Logo.jpeg}
     }
     \parbox{4cm}{
         \emph{\Large{Höhere Mathematik 1}}

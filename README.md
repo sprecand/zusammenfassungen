@@ -8,4 +8,4 @@ ZHAW Informatik Teilzeit
 * [Datenbanken](/semester3/db)
 
 ### Anki
-* ([Anki für Algorithmen und Datenstrukturen](https://ankiweb.net/shared/info/701726261))
+* [Anki für Algorithmen und Datenstrukturen](https://ankiweb.net/shared/info/701726261)

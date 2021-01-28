@@ -577,7 +577,7 @@ bestehenden Attributwerten gemacht werden
 						\item DELETE löscht immer ganze Tupel
 						\item DELETE wird in der Regel mit einer Selektion verbunden
 						\item Ohne Search Condition/WHERE-Klausel wird die ganze Tabelle geleert
-						\item DELETE FROM Salaer WHERE Betrag > 100000;
+						\item DELETE FROM Salaer WHERE Betrag $>$ 100000;
 						\item Bei Verletzung von Schlüsselbedingungen oder wenn die WHERE-Klausel
 keine Treffer ergibt, wird nichts gelöscht
 					\end{itemize}	
@@ -592,7 +592,56 @@ keine Treffer ergibt, wird nichts gelöscht
 				\subsubsection{SELECT}
 					\begin{itemize}\itemsep0pt		
 						\item Entspricht der Projektion
+						\item Reihenfolge: FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY
+						\item DISTINCT elimieniert Duplikate, da aber eine Sortierung nötig ist (n*log(n)) nur anwenden, wenn nötig
+						\item Suchprädikate werden mit einer dreiwertigen Logik ausgewertet (false, true, unknown)
+						\item Bereichsvariable: SELECT * FROM (SELECT Name FROM Person) AS x WHERE x.Name = 'Müller'$;$
 					\end{itemize}	
+						
+					\textbf{LIKE}
+						\begin{itemize}\itemsep0pt			
+							\item '\_' steht für ein einzelnes, beliebiges Zeichen 
+							\item '\%' steht für eine beliebige Anzahl Zeichen
+							\item SELECT name FROM Mitarbeiter NATURAL JOIN Person WHERE name LIKE 'M\_\_er'$;$
+							\item Besucher mit gleichem Vornamen: SELECT * FROM Besucher AS x WHERE EXISTS ( SELECT 1 FROM Besucher AS y WHERE x.Vorname = y.Vorname AND x.Name $<>$ y.Name )$;$
+						\end{itemize}	
+						
+					\textbf{Mengen}
+						\begin{itemize}\itemsep0pt			
+							\item Concatenation: UNION ALL
+							\item Durchschnitt: INTERSECT ALL
+							\item Differenz: EXCEPT ALL
+							\item SELECT * FROM Besucher1 EXCEPT ALL SELECT * FROM Besucher2$;$
+						\end{itemize}	
+						
+					\textbf{Aggregatfunktionen}
+						\begin{itemize}\itemsep0pt		
+							\item COUNT, MAX, MIN, SUM, AVG
+							\item SELECT COUNT (DISTINCT TITEL) FROM CD$;$
+							\item Aggregatfunktionen ohne Gruppierung liefern eine Tabelle mit einem Tupel und einem Attribut
+							\item SELECT kdNr, COUNT(*) AS AnzahlBestellungen FROM Kaufhistorie GROUP BY kdNr$;$
+							\item Liefert eine Tabelle mit einem Tupel pro kdNr, d.h. ein Tupel pro Kunde
+							\item HAVING schliesst ganze Gruppen aus
+							\item ... HAVING SUM(menge * preis)1 > 500$;$
+							\item ... WHERE Name IN ('Meier', 'Müller', 'Sonderegger')$;$
+						\end{itemize}	
+						
+					\textbf{Join}
+						\begin{itemize}\itemsep0pt		
+							\item Natural join: A $\bowtie$ B $\rightarrow$ SELECT ... FROM A NATURAL JOIN B WHERE ...$;$
+							\item Theta join: A $\bowtie_{P}$ B $\rightarrow$ SELECT ...FROM A JOIN B ON P -- Joinprädikat WHERE ... -- Selektionsprädikat$;$
+							\item Kreuzprodukt: A $\times$ B $\rightarrow$ SELECT ... FROM A, B WHERE ...$;$
+						\end{itemize}
+						
+					\textbf{Null}
+						\begin{itemize}\itemsep0pt		
+							\item Ein Wert ist unbekannt, nicht anwendbar, nicht definiert, die leere Menge oder existiert nicht
+							\item Null ist kein Wert
+							\item WHERE-Klauseln liefern in SQL nur Tupel deren Selektionsprädikat auf wahr ausgewertet wird
+							\item SELECT ... FROM ... WHERE A = 5 OR A IS NULL$;$
+						\end{itemize}	
+						
+					\includegraphics[height=3cm]{img/null.png}
 			
 			\subsection{Data Control Language DCL}
 				\begin{itemize}\itemsep0pt		
@@ -611,19 +660,17 @@ keine Treffer ergibt, wird nichts gelöscht
 					\item Ein Name (TableName, TableAlias, ColumnName, ColumnAlias, ...) muss mit einem Buchstaben beginnen, gefolgt von Buchstaben, Ziffern oder der Unterlänge (underscore) \_
 					\item Jede Anweisung ist mit einem $;$ (Semikolon) abzuschliessen.
 				\end{itemize}	
-			
-			
-			
-				
-				
-				
-				
-				
-				
-				
-				
-		
+
 		\section{Technische Aspekte}
+			\begin{itemize}\itemsep0pt		
+				\item SQL ist eine deskriptive Sprache
+				\item Bei SQL wurden Eigenschaften für eine prozedurale Sprache hinzugefügt
+				\item Stored procedures werden in der Datenbank abgelegt und ausgeführt
+				
+			\end{itemize}	
+		
+		
+		
 		
 	\end{multicols*}
 \end{document}

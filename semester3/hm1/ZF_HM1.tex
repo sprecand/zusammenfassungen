@@ -140,7 +140,6 @@
 				\item F hat genau einen Fixpunkt $\bar{x}$ in $[a,b]$
 				\item Die Fixpunktiteration $x_{n+1} = F(x_{n})$ konvergiert gegen $\bar{x}$ für alle Startwerte $x_{0} \epsilon [a,b]$
 				\item a-priori Abschätzung $|x_{n} - \bar{x}| \leq \dfrac{\alpha^{n}}{1-\alpha}\cdot |x_{1}-x_{0}|$ 
-				
 				\item a-posteriori Abschätzung $|x_{n} - \bar{x}| \leq \dfrac{\alpha}{1-\alpha}\cdot |x_{n}-x_{n-1}|$ 
 			\end{itemize}
 			 
@@ -270,32 +269,144 @@
 				\end{itemize}
 
 			\subsection{Abschätzung für fehlerbehaftete Matrix}
-			\begin{itemize}\itemsep0pt	
-				\item $\tilde{A} \cdot \tilde{x} = \tilde{b}$
-				\item Wenn: cond$(A)\cdot \dfrac{||A-\tilde{A}||}{||A||} < 1$
-				\item Dann: $\dfrac{||x-\tilde{x}||}{||x||} \leq \dfrac{cond(A)}{1-cond(A)\cdot \dfrac{||A-\tilde{A}||}{||A||}}\cdot (\dfrac{||A-\tilde{A}||}{||A||} + \dfrac{||b-\tilde{b}||}{||b||} ) $
-					
+				\begin{itemize}\itemsep0pt	
+					\item $\tilde{A} \cdot \tilde{x} = \tilde{b}$
+					\item Wenn: cond$(A)\cdot \dfrac{||A-\tilde{A}||}{||A||} < 1$
+					\item Dann: $\dfrac{||x-\tilde{x}||}{||x||} \leq \dfrac{cond(A)}{1-cond(A)\cdot \dfrac{||A-\tilde{A}||}{||A||}}\cdot (\dfrac{||A-\tilde{A}||}{||A||} + \dfrac{||b-\tilde{b}||}{||b||} ) $
+				\end{itemize}
+				
+			\subsection{Iterative Verfahren}
+				\begin{itemize}\itemsep0pt	
+					\item Ein Startvektor $x^{(0)}$ wird solange iteriert ($x^{(k+1)} = F(x^{(k)})$), bis x gegen das Gleichungssystem $Ax = b$ konvergiert
+					\item Ein hochgestellter Index in Klammern $x^{(k)}$ bezeichnet einen Vektor aus $R^{n}$ nach der k-ten Iteration
+					\item A = L + D + R
+					\item $A = \begin{pmatrix}0&0&0\\a_{21}&0&0\\a_{31}&a_{32}&0\end{pmatrix} + \begin{pmatrix}a_{11}&0&0\\0&a_{22}&0\\0&0&a_{33}\end{pmatrix} + \begin{pmatrix}0&a_{12}&a_{13}\\0&0&a_{23}\\0&0&0\end{pmatrix}$
+					\item Matrizen L und R entsprechen nicht den Matrizen der LR-Zerlegung
+				\end{itemize}
+
+
+			\subsection{Das Jacobi-Verfahren / Gesamtschrittverfahren}
+				\begin{itemize}\itemsep0pt	
+					\item $Dx^{(x+1)} = -(L+R)x^{(k)} + b$
+					\item $x^{(x+1)} = -D^{-1}(L+R)x^{(k)} + D^{-1}b$
+					\item $B = -D^{-1}(L+R)$
 				\end{itemize}
 			
-
-		\subsection{Iterative Verfahren}
-		
-			\subsection{Das Jacobi-Verfahren}
-			
-			\subsection{Das Gauss-Seidel-Verfahren}
+			\subsection{Das Gauss-Seidel-Verfahren / Einzelschrittverfahren}
+				\begin{itemize}\itemsep0pt	
+					\item $(D+L)x^{(x+1)} = -Rx^{(k)} + b$
+					\item $x^{(x+1)} = -(D+L)^{-1}Rx^{(k)} + (D+L)^{-1}b$
+					\item $B = -(D+L)^{-1}R$
+				\end{itemize}
 		
 			\subsection{Konvergenz}
+				\begin{itemize}\itemsep0pt	
+					\item Falls A diagonaldominant ist, konvergiert das Gesamtschrittverfahren und das Einzelschrittverfahren für Ax = b	
+					\item Es gibt nicht diagonaldominante Matrizen, für die die Verfahren trotzdem konvergieren kann
+					\item Ein notwendiges und hinreichendes Kriterium ist, dass der Spektralradius $\rho(B) < 1$
+				\end{itemize}			
+			
+				\subsubsection{Anziehender oder abstossender Fixpunkt}
+					\begin{itemize}\itemsep0pt	
+						\item $x^{(n+1)} = Bx^{(n)} + b$
+						\item $\bar{x}$ anziehender Fixpunkt, wenn $||B||<1$
+						\item $\bar{x}$ abstossender Fixpunkt, wenn $||B||>1$
+					\end{itemize}
+					
+				\subsubsection{Abschätzung}
+					\begin{itemize}\itemsep0pt	
+						\item $x^{(n+1)} = Bx^{(n)} + b$
+						\item a-priori Abschätzung: $||x^{(n)} - \bar{x}|| \leq \dfrac{||B||^{n}}{1-||B||}\cdot ||x^{(1)}-x^{(0)}||$ 
+						\item a-posteriori Abschätzung: $||x^{(n)} - \bar{x}|| \leq \dfrac{||B||}{1-||B||}\cdot ||x^{(n)}-x^{(n-1)}||$ 
+					\end{itemize}
+					
+				\subsubsection{Diagonaldominanz}
+					\begin{itemize}\itemsep0pt	
+						\item A ist diagonaldominant, wenn das Zeilensummenkriterium oder das Spaltensummenkriterium gilt
+						\item Zeilensummenkriterium: für alle i = 1,...,n: $|a_{ii}| > \sum_{j=1, j \neq i}^{n}|a_{ij}|$
+						\item Spaltensummenkriterium: für alle j = 1,...,n: $|a_{jj}| > \sum_{i=1, i \neq j}^{n}|a_{ij}|$
+					\end{itemize}
 				
-		\subsection{Eigenwerte und Eigenvektoren}
-			\subsubsection{Algebraische Vielfachheit / Spektrum}
+				
+		
+		\subsection{Komplexe Zahlen}
+			\begin{itemize}\itemsep0pt	
+				\item Eine komplexe Zahl $z$ ist ein geordnetes Paar $(x, y)$ zweier reeller Zahlen $x$ und $y$
+				\item $z = x + iy$
+				\item $z^{*} = x - iy$
+				\item $|z|= \sqrt{x^{2}+y^{2}}$
+				\item $i^{2} = -1$
+				\item Realteil von $z: Re(z) = x$
+				\item Imaginärteil von $z: Im(z) = y$
+			\end{itemize}
+			
+			\includegraphics[height=5cm]{./img/komplex.png}
+			
+			\begin{itemize}\itemsep0pt	
+				\item Normalform: $z = x + iy$
+				\item Trigonometrische Form: $z = r(cos(\varphi)+i\cdot sin(\varphi))$
+				\item Exponentialform: $z = re^{i\varphi}$
+			\end{itemize}
+			
+			\subsubsection{Rechenregeln}
+				\begin{itemize}\itemsep0pt	
+					\item Addition: $z_{1} + z_{2} = (x_{1} + x_{2})+i(y_{1} + y_{2})$
+					\item Subtraktion: $z_{1} - z_{2} = (x_{1} - x_{2})+i(y_{1} - y_{2})$
+					\item Multiplikation: $z_{1} \cdot z_{2} = (x_{1}x_{2} - y_{1}y_{2}) - i(x_{1}y_{2} + x_{2}y_{1})$
+					\item$z_{1} \cdot z_{2} =  r_{1}e^{i\varphi_{1}} \cdot  r_{2}e^{i\varphi_{2}} =  r_{1}r_{2}e^{i(\varphi_{1}+\varphi_{2})}$
+					\item Division: $\dfrac{z_{1}}{z_{2}} = \dfrac{z_{1} \cdot z_{2}^{*} }{z_{2} \cdot z_{2}^{*} }$
+					\item$\dfrac{z_{1}}{z_{2}} = \dfrac{r_{1}e^{i\varphi_{1}}}{r_{2}e^{i\varphi_{2}}} = \dfrac{r_{1}}{r_{2}}e^{i(\varphi_{1} - \varphi_{2})}$
+				\end{itemize}
+				
+				\includegraphics[height=6cm]{./img/komplex2.png}
+				\begin{itemize}\itemsep0pt	
+					\item Die Lösungen der Gleichung $z^{6} = 1$
+				\end{itemize}
+										
+			\subsection{Eigenwerte und Eigenvektoren}	
 				\begin{itemize}\itemsep0pt				
-					\item Geometrische und algebraische Vielfachheit eines Eigenwerts müssen nicht gleich sein. 
-					\item Die geom. Vielfachheit ist aber stets kleiner oder gleich der algebraischen Vielfachheit.
+					\item $Ax = \lambda x$
+					\item Eigenwert $\lambda$
+					\item Eigenvektor $x$
+					\item Der Nullvektor wird als triviale Lösung nicht berücksichtigt
+					\item Eigenvektoren werden i.d.R. auf die Länge 1 normiert
+					\item $(A - \lambda I_{n})x = 0$
+				\end{itemize}
+			
+			\subsubsection{Charakteristisches Polynom / Spur}
+  			Spur von A $= tr(A)=a_{11} +a_{22} +...+a_{nn} =\lambda_{1} +\lambda_{2} +...+\lambda_{n}$
+
+			\subsubsection{Algebraische Vielfachheit / Spektrum}
+				\begin{itemize}\itemsep0pt		
+					\item Das Spektrum $\sigma(A)$ ist die Menge aller Eigenwerte von A
 					\item $(1-\lambda)^{2} = 0$ \qquad Algebraische Vielfachheit = 2
 					\item $\lambda = 0$ \qquad \qquad \qquad Algebraische Vielfachheit = 1
 				\end{itemize}
-			\subsubsection{Determinate}
+				
+			\subsubsection{Eigenraum}				
+				\begin{itemize}\itemsep0pt		
+					\item Die Eigenvektoren zum Eigenwert $\lambda$ bilden zusammen mit dem Nullvektor 0 einen Unterraum
+					\item Der Eigenraum des Eigenwertes $\lambda$ ist die Lösungsmenge des homogenen lin. Gleichungssystems $(A - \lambda I_{n})x = 0$
+					\item Weist nur dann eine nicht-triviale Lösung auf, wenn gilt: $Rg(A - \lambda I_{n}) < n$
+					\item \textbf{Geometrische Vielfachheit}: $n - Rg(A - \lambda I_{n})$
+				\end{itemize}
 			
+			\subsubsection{Vielfachheit}		
+				\begin{itemize}\itemsep0pt	
+					\item Geometrische und algebraische Vielfachheit eines Eigenwerts müssen nicht gleich sein
+					\item Die geom. Vielfachheit ist aber stets kleiner oder gleich der algebraischen Vielfachheit
+				\end{itemize}
+				
+			\subsubsection{Ähnliche Matrizen / Diagonalisierbarkeit}
+				\begin{itemize}\itemsep0pt	
+					\item A und B sind ähnlich: $B = T^{-1}1AT$
+					\item Ist B eine Diagobalmatrix ist A \textbf{diagonalisierbar}
+					\item Ähnliche Matrizen haben dieselben Eigenwerte, inkl. deren algebraischer Vielfachheit.
+					\item Ist x ein Eigenvektor zum Eigenwert $\lambda$ von B, dann ist Tx ein Eigenvektor zum Eigenwert $\lambda$ von A
+					\item In einer diagonalisierbar Matrix sind die n Diagonalelemente von D die Eigenwerte von A
+					\item In einer diagonalisierbar Matrix stehen die n linear unabhängigen Eigenvektoren von A in den Spalten von T
+				\end{itemize}
+				
 			\subsubsection{Determinante von $A\in \mathbb K^{n\times n}$: $\det(A)=|A|$}
 
 				\begin{itemize}\itemsep0pt
@@ -330,8 +441,7 @@
 
 				\end{tabular}			
 			
-			\subsubsection{Spur}
-  			Spur von A $= tr(A)=a_{11} +a_{22} +...+a_{nn} =\lambda_{1} +\lambda_{2} +...+\lambda_{n}$
+			
 
     
 
